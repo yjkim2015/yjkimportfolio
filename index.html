@@ -44,6 +44,12 @@
 
 		<script type="text/javascript" src="js/libs/modernizr.min.js"></script>
 <style>
+@import url(https://fonts.googleapis.com/earlyaccess/hanna.css);
+            @import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+            h1, h2, h3, h4, h5, h6{
+                font-family: 'Roboto Slab', 'Nanum Gothic', serif;
+          /*      font-weight: 100 !important;*/
+            }
 .timeline{
 	border-left: 3px solid #38A5DB;
     border-bottom-right-radius: 2px;
@@ -84,11 +90,54 @@ max-width: 220px;
 .timeline .job-desc{
 	    color: #666;
 }
+.contactall{
+	width: 50%;
+min-width: 300px;
+margin-left: auto;
+margin-right: auto;
+}
+.contactcon{
+	max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
 
+}
+.contactleft{
+	width: 20%;
+min-width: 80px;
+text-align: left;
+vertical-align: top;
+}
+.contactright{
+	width: 68%;
+min-width: 212px;
+text-align: left;
+padding-left: 5%;
+vertical-align: top;
+}
+.contactleft, .contactright {
+    display: inline-block;
+}
+.contactcon * {
+    font-size: 20px;
+    font-family: inherit;
+}
+#sdbr-git{
+	width:350px;
+}
 </style>
 <script>
 $(function(){
 	var windowWidth=$(window).width();
+	if(windowWidth<=750){
+		$(".timeline").css("margin-left",0);
+		$(".timeline .job-meta").css("position","static");
+		$(".timeline .job-meta").css("margin-bottom","15px");
+	}else{
+		$(".timeline").css("margin-left",280);
+		$(".timeline .job-meta").css("position","absolute");
+		$(".timeline .job-meta").css("margin-bottom","0");
+	}
 	$(window).resize(function(){
 		var windowWidth=$(window).width();
 		console.log(windowWidth);
@@ -193,7 +242,7 @@ $(function(){
 
 						<img class="img-responsive img-center img-circle scrollimation fade-left" src="imgs/이력서사진.png" alt="" />
 
-						<p class="text-center scrollimation fade-in">Cras convallis nunc vitae massa convallis fermentum. Fusce feugiat, sem at congue rutrum, nisl mauris facilisis tellus, vel interdum nulla enim at purus. Integer metus justo, pellentesque ac bibendum a, dapibus sed nisl. Donec vitae suscipit lacus. Vivamus lacinia nisi eget erat luctus, id mollis nunc molestie. </p>
+						<p class="text-center scrollimation fade-in">개발에 대해 즐거움과 열정이 가득한 신입 개발자 김윤제입니다.<br><br>성실한 과정과 탄탄한 결과로 보여드리겠습니다. <br> 좋은 인연으로 함께했으면 좋겠습니다. </p>
 
 					</div>
 
@@ -211,14 +260,14 @@ $(function(){
 		=============================================== -->
 		<section id="resume" class="experiences-section section">
            	<div class="container">
-                <header class="section-header text-center">
+                <header class="section-header text-center" style="margin-top:50px;">
 
                     <h1 class="scrollimation scale-in in">Resume</h1>
                     <p>
-                    저는 비트 캠프 개발자 양성 과정을 우수한 평가로 수료하였으며 <br>
+                    대학시절 웹 프로그래밍이 재미있어 백엔드 개발자의 길을 걷게 되었습니다. <br>
+										<br>다양한 팀 프로젝트를 통해 협업과 의사소통의 중요성을 배웠으며,<br>
                     꾸준한 자기 계발과 실력 향상으로 회사에 생산성을 내는 개발자가 될 것입니다.<br><br>
-                    저는 12년간 ‘㈜아웃백 스테이크하우스’에서 영업 관리를 해 온 경험으로 실무의 적응력은 물론, <br>
-                    협업과 팔로워십의 중요성을 일반적인 사회 초년생보다 월등히 잘 이해할 수 있습니다.<br>
+
                     </p>
 
                 </header>
@@ -228,71 +277,65 @@ $(function(){
                     <div class="item">
                         <div class="work-place">
                             <h3 class="place"><b>비트 캠프</b></h3>
-                            <div class="location"><i class="fas fa-map-marker-alt mr-1"></i>서울 마포구</div>
+                            <div class="location"><i class="fas fa-map-marker-alt mr-1"></i>서울 종로구</div>
                         </div>
                         <div class="job-meta">
                             <div class="title">Java 웹/앱 개발자 과정</div>
-                            <div class="time">2018</div>
+                            <div class="time">2018.08~2019.03</div>
                         </div><!--//job-meta-->
                         <div class="job-desc">
-                            <p>개발자로 이직을 목표로 아웃백을 퇴사 후 비트캠프 신촌점으로<br>
+                            <p>대학 시절 백엔드 개발자의 진로 결정 후 비트캠프 종로점으로<br>
                             Java 기반 웹/앱 개발자 양성 과정 수료<br>
-                            수강생 우수상 수상</p>
+                            </p>
                             <ul>
                                 <li>Java 문법 교육, JSP 및 Servlet 구현 </li>
                                 <li>웹 표준 구현 - HTML5, CSS, CSS3, 반응형 웹, JavaScript, JQuery, Ajax</li>
                                 <li>Spring 프레임워크, Mybatis</li>
                                 <li>JSP &amp; Servlet MVC 모델 실무 프로젝트 개발</li>
+
+																<li>
+																	<p>SpringFramework 기반</p>
+																	<p>내국인, 외국인을 위한 우리나라 유적지 정보 다국어 제공 서비스 '발자취' 개발</p></li>
                             </ul>
                         </div><!--//job-desc-->
                     </div><!--//item-->
 
-                    <div class="item">
-                        <div class="work-place">
-                            <h3 class="place"><b>아웃백 스테이크하우스 코리아</b></h3>
-                            <div class="location"><i class="fas fa-map-marker-alt mr-1"></i>청주</div>
-                        </div>
-                        <div class="job-meta">
-                            <div class="title">Manager</div>
-                            <div class="time">2006 - 2017</div>
-                        </div><!--//job-meta-->
-                        <div class="job-desc">
-                            <p>2006년 입사후 교육 과정 이수하여 Manager로 2017년까지 근속<br>
-                            근속 중 SalesPromotion 전사 1위 6회, 고객 만족도 전사 1위 2회 달성
-                            </p>
-                            <ul>
-                                <li>직원 관리 - 교육, 채용, 인건비</li>
-                                <li>영업 관리 - ERP관리, 매장 운영, 시설, 영업 보고(Excel, PPT), 회계, 재무, 발주 </li>
-                                <li>고객 관리 - 마케팅, 고객 코멘트 관리</li>
-                            </ul>
-                        </div><!--//job-desc-->
-                    </div><!--//item-->
+
 
                     <div class="item">
                         <div class="work-place">
-                            <h3 class="place"><b>충청대학교 호텔경영과</b></h3>
-                            <div class="location"><i class="fas fa-map-marker-alt mr-1"></i>청주</div>
+                            <h3 class="place"><b>서경대학교 컴퓨터공학과</b></h3>
+                            <div class="location"><i class="fas fa-map-marker-alt mr-1"></i>서울</div>
                         </div>
                         <div class="job-meta">
-                            <div class="title">전과</div>
-                            <div class="time">2006 - 2008</div>
+                            <div class="title">학사 과정</div>
+                            <div class="time">2015.03 - 2019.02</div>
                         </div><!--//job-meta-->
                         <div class="job-desc">
-                            <p>관광학부 &amp; 호텔경영 과정 수료</p>
-                        </div><!--//job-desc-->
-                    </div><!--//item-->
+													<ul>
+														<li><p>2017-09-21 추계정보처리 학술대회 논문 게제 및 구두 발표</p>
+														<p>논문번호 논문번호 KIPS_C2017B0284</p>
+														<p>발표 분야 S6. 인간과 컴퓨터 상호작용</p>
+														<p>논문 제목 가상 현실 3D 오브젝트와의 상호작용을 위한 MCSVM 기반 손 제스처 인식</p>
+														<p>알고리즘 서브개발자 및 Unity 메인 개발자 , 논문 구두 발표자</p></li>
 
-                    <div class="item">
-                        <div class="work-place">
-                            <h3 class="place"><b>충청대학교 컴퓨터 학부</b></h3>
-                            <div class="location"><i class="fas fa-map-marker-alt mr-1"></i>청주</div>
-                        </div>
-                        <div class="job-meta">
-                            <div class="title">전문 학사 과정</div>
-                            <div class="time">2002 - 2003</div>
-                        </div><!--//job-meta-->
-                        <div class="job-desc">
-                            <p>정보통신과 이수</p>
+														<li>
+															<p>2018 hyconhack 참가</p>
+															<p>2018 09 14 ~2018 09 15 glosfer 주최 2018 hyconhacks에 참가</p>
+															<p><a href="https://devpost.com/software/the-second-word-of-these-cats"> https://devpost.com/software/the-second-word-of-these-cats</a></p>
+														</li>
+														<li><p>2018.06~2018.11 졸업작품</p>
+																<p>Spring Framework 기반</p>
+																<p>해외 여행인들이 여행지의 명소,맛집 정보등을 얻고 실시간 채팅을 통하여 동행인을 구할 수 있는 웹 서비스 'WITH' 개발</p>
+														</li>
+														<li><p>2018.12~2019.01</p>
+															<p>Spring boot+vue Framework 기반</p>
+															<p>서경대학교 컴퓨터 공학과 학생회비 내역 공개 사이트 개발</p>
+														</li>
+
+                            <li><p>컴퓨터공학과 이수</p></li>
+
+													</ul>
                         </div><!--//job-desc-->
                     </div><!--//item-->
 
@@ -303,32 +346,7 @@ $(function(){
 		<!-- ==============================================
 		FEATURED PROJECT
 		=============================================== -->
-		<section id="feat-project" class="gray-bg padding-top">
 
-			<div class="container">
-
-				<header class="section-header text-center">
-
-					<h1 class="scrollimation scale-in">Featured Project</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/> Aenean purus felis, condimentum et tempor in, commodo id nibh. Fusce a lacus arcu.</p>
-
-				</header>
-
-				<div class="scrollimation fade-up">
-					<img class="img-responsive img-center" src="assets/chrome-top.png" alt="" />
-
-					<div class="img-wrapper">
-
-						<img class="img-responsive img-center" src="assets/placeholder-800x500.jpg" alt="" />
-
-						<p class="text-center on-hover"><a class="btn btn-meflat icon-right" href="#external">Visit Website<i class="fa fa-arrow-right"></i></a></p>
-
-					</div>
-				</div>
-
-			</div>
-
-		</section>
 
 
 		<!-- ==============================================
@@ -344,23 +362,66 @@ $(function(){
 
 				<div class="row skills">
 
-					<h1 class="text-center scrollimation fade-in">I Got the Skills</h1>
+					<h1 class="text-center scrollimation fade-in in">Coding &amp; Programming</h1>
+					<br>
 
 					<div class="col-sm-6 col-md-3 text-center">
-						<span class="chart" data-percent="80"><span class="percent">80</span></span>
-						<h2 class="text-center">Web Design</h2>
+						<!--<span class="chart" data-percent="80"><span class="percent">80</span></span>-->
+						<h2 class="text-center">Java</h2>
 					</div>
 					<div class="col-sm-6 col-md-3 text-center">
-						<span class="chart" data-percent="70"><span class="percent">70</span></span>
-						<h2 class="text-center">HTML / CSS</h2>
+						<!--<span class="chart" data-percent="70"><span class="percent">70</span></span>-->
+						<h2 class="text-center">JSP / Servlet</h2>
 					</div>
 					<div class="col-sm-6 col-md-3 text-center">
-						<span class="chart" data-percent="60"><span class="percent">60</span></span>
-						<h2 class="text-center">Graphic Design</h2>
+						<!--<span class="chart" data-percent="60"><span class="percent">60</span></span>-->
+						<h2 class="text-center">JavaScript / JQuery / Ajax</h2>
 					</div>
 					<div class="col-sm-6 col-md-3 text-center">
-						<span class="chart" data-percent="90"><span class="percent">90</span></span>
-						<h2 class="text-center">UI / UX</h2>
+						<!--<span class="chart" data-percent="60"><span class="percent">60</span></span>-->
+						<h2 class="text-center">HTML / CSS / BootStarp</h2>
+					</div>
+
+				</div><!--End row -->
+				<div class="row skills">
+
+					<h1 class="text-center scrollimation fade-in in">DB</h1>
+					<br>
+
+					<div class="col-sm-6 col-md-3 text-center">
+						<!--<span class="chart" data-percent="80"><span class="percent">80</span></span>-->
+						<h2 class="text-center">MySQL</h2>
+					</div>
+					<div class="col-sm-6 col-md-3 text-center">
+						<!--<span class="chart" data-percent="70"><span class="percent">70</span></span>-->
+						<h2 class="text-center">Oracle</h2>
+					</div>
+
+				</div><!--End row -->
+				<div class="row skills">
+
+					<h1 class="text-center scrollimation fade-in in">Framework &amp; Tool</h1>
+					<br>
+
+					<div class="col-sm-6 col-md-3 text-center">
+						<!--<span class="chart" data-percent="80"><span class="percent">80</span></span>-->
+						<h2 class="text-center">Eclips / STS</h2>
+					</div>
+					<div class="col-sm-6 col-md-3 text-center">
+						<!--<span class="chart" data-percent="70"><span class="percent">70</span></span>-->
+						<h2 class="text-center">Spring Framework</h2>
+					</div>
+					<div class="col-sm-6 col-md-3 text-center">
+						<!--<span class="chart" data-percent="70"><span class="percent">70</span></span>-->
+						<h2 class="text-center">Vue Framework</h2>
+					</div>
+					<div class="col-sm-6 col-md-3 text-center">
+						<!--<span class="chart" data-percent="70"><span class="percent">70</span></span>-->
+						<h2 class="text-center">Mybatis</h2>
+					</div>
+					<div class="col-sm-6 col-md-3 text-center">
+						<!--<span class="chart" data-percent="70"><span class="percent">70</span></span>-->
+						<h2 class="text-center">AWS</h2>
 					</div>
 
 				</div><!--End row -->
@@ -379,7 +440,8 @@ $(function(){
 				<header class="section-header text-center">
 
 					<h1 class="scrollimation scale-in">My Works</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/> Aenean purus felis, condimentum et tempor in, commodo id nibh. Fusce a lacus arcu.</p>
+					<p>웹 개발을 하며 개발한 프로젝트입니다.<br><br>
+이후 구현할 개인 프로젝트, 업무를 맡았던 프로젝트는 이곳에 업데이트됩니다.</p>
 
 				</header>
 
@@ -390,14 +452,12 @@ $(function(){
 							<a href="#" data-filter="*">All</a>
 						</li>
 						<li class="scrollimation fade-right">
-							<a href="#" data-filter=".web-design">Web Design</a>
+							<a href="#" data-filter=".team">Team</a>
 						</li>
 						<li class="scrollimation fade-left">
-							<a href="#" data-filter=".icons">Icons</a>
+							<a href="#" data-filter=".icons">SOLO</a>
 						</li>
-						<li class="scrollimation fade-left d1">
-							<a href="#" data-filter=".ui-kits">UI Kits</a>
-						</li>
+
 					</ul>
 				</div><!--End portfolio filters -->
 
@@ -410,30 +470,47 @@ $(function(){
 					<!-- ==============================================
 					SINGLE PROJECT ITEM
 					=============================================== -->
-					<article class="project-item web-design">
+					<article class="project-item team">
 
-						<img class="img-responsive project-image" src="assets/placeholder-320x210.jpg"  alt=""><!--Project thumb -->
+						<img class="img-responsive project-image" src="imgs/foot_main.png"  alt=""><!--Project thumb -->
 
 						<div class="hover-mask">
-							<h2 class="project-title">Project Title</h2><!--Project Title -->
-							<p>Subtitle</p><!--Project Subtitle -->
+							<h2 class="project-title">발자취</h2><!--Project Title -->
+							<p>내국인, 외국인을 위한 우리나라 유적지 정보 다국어 정보 제공 웹 서비스</p><!--Project Subtitle -->
 						</div>
 
 						<!--==== Project Preview HTML ====-->
 
 						<div class="sr-only project-description"
-							data-category="Category"
-							data-date="Date"
-							data-client="Client"
-							data-link="www.example.com,http://www.google.com"
-							data-descr="A small description goes here."
-							data-images="assets/placeholder-750x430.jpg,assets/placeholder-750x430.jpg"
+							data-category="유적지 탐방 웹 서비스"
+							data-date="2019.02~2019.03 (4 Week)"
+							data-client="팀 프로젝트"
+							data-link="www.ktrace.tk,http://www.ktrace.tk"
+							data-git="github.com/yjkim2015/trace.git,http://github.com/yjkim2015/trace.git"
+							data-descr="테스트 접속 아이디:forteas2  비밀번호: godqhr2018 (모바일 지원)"
+							data-images="imgs/foot_main.png,imgs/foot_location.png,imgs/foot_join.png,imgs/foot_login.png,imgs/foot_login_capcha.png,imgs/foot_notice.png,imgs/foot_notice2.png"
 						>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.</p>
+							<h3>사이트 소개</h3>
+							<p>내국인, 외국인을 위한 우리나라 유적지 정보 다국어 정보 제공 웹 서비스 -반응형 (모바일 지원)</p>
+								<p>유적지 정보와 유적지 근처 음식점, 숙소 다국어 정보 제공 및 찜하기, 별점, 댓글, 마이페이지 기능 구현</p>
+									<p>테스트 아이디(id=forteas2,pw=godqhr2018)</p>
 
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.</p>
-							<p>Nam eget urna pellentesque nisl ultrices dapibus. Mauris accumsan vehicula nisl, sed tempus mauris facilisis eu. Donec a iaculis nisi, quis malesuada justo. Pellentesque ut enim sit amet ipsum dignissim egestas. Morbi tincidunt rhoncus urna eget placerat.</p>
-							<p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p>
+							<h3>사이트 구성</h3>
+							<p>Spring Framework 4.17 구성</p>
+							<p>발자취 홈페이지,관리자 페이지로 구성</p>
+							<p>구현내용 : Tour API 유적지 데이터 파싱, 회원가입, 로그인, 공지사항, 마이페이지, 별점, 댓글, 에디터추천 코스, (지역, 시대, 테마별) 유적지</p>
+							<p>	개발 환경 : STS, ATOM, Mysql , AWS, Putty, FileZila, Github, Tomcat9.0</p>
+							<p>	사용 기술 : Java, Jsp, JavaScript, Ajax, MySQL, MyBatis, Bootstrap, Three.js, Capcha, Naver Login,</p>
+							<p>	Kakao Login, Naver Papgo, Daum Map, Chart.js, Summer Note, Smtp Email</p>
+
+							<h3>본인 수행 업무</h3>
+							<p>발자취 프로젝트 전체 Front 전담(디자인 및 반응형)</p>
+							<p>	Tour API 유적지 데이터 파싱, (회원가입, 로그인, 유적지(지역, 시대, 테마별), 메인 페이지 Three.js, 별점,
+								 댓글의 백엔드 기능 구현) 및 프로젝트 API 전담<br></p>
+							<p>	팀장, 프로젝트 총괄, 구상 및 실현 계획 작성, 프레젠테이션 진행,<br>
+								화면 설계, DB설계 및 구성, 백엔드 구성, 아마존 AWS EC2-RDS 구성 도메인 연결
+							</p>
+							<p class="text-right"><a class="btn btn-meflat icon-right" href="http://www.ktrace.tk">Visit Website<i class="fa fa-arrow-right"></i></a></p>
 						</div>
 
 					</article>
@@ -441,30 +518,44 @@ $(function(){
 					END PROJECT ITEM
 					=============================================== -->
 
-					<article class="project-item icons">
+					<article class="project-item team">
 
-						<img class="img-responsive project-image" src="assets/placeholder-320x210.jpg"  alt=""><!--Project thumb -->
+						<img class="img-responsive project-image" src="imgs/trace_admin_main.png"  alt=""><!--Project thumb -->
 
 						<div class="hover-mask">
-							<h2 class="project-title">Project Title</h2><!--Project Title -->
-							<p>Subtitle</p><!--Project Subtitle -->
+							<h2 class="project-title">발자취 관리자</h2><!--Project Title -->
+							<p>발자취-관리자</p><!--Project Subtitle -->
 						</div>
 
 						<!--==== Project Preview HTML ====-->
 
 						<div class="sr-only project-description"
-							data-category="Category"
-							data-date="Date"
-							data-client="Client"
-							data-link="www.example.com,http://www.google.com"
-							data-descr="A small description goes here."
-							data-images="assets/placeholder-750x430.jpg,assets/placeholder-750x430.jpg"
+							data-category="발자취 관리자사이트"
+							data-date="2019.02~2019.03 (4 Week)"
+							data-client="팀 프로젝트"
+							data-link="www.ktraceadmin.tk"
+							data-git="github.com/yjkim2015/trace_admin.git,http://github.com/yjkim2015/trace_admin.git"
+							data-descr="테스트 아이디: root 비밀번호: admin"
+							data-images="imgs/trace_admin_main.png,imgs/trace_admin_login.png,imgs/trace_admin_category.png,imgs/trace_admin_editor.png,imgs/trace_admin_notice.png"
 						>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.</p>
+						<h3>사이트 소개</h3>
+						<p>발자취 관리자 사이트</p>
 
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.</p>
-							<p>Nam eget urna pellentesque nisl ultrices dapibus. Mauris accumsan vehicula nisl, sed tempus mauris facilisis eu. Donec a iaculis nisi, quis malesuada justo. Pellentesque ut enim sit amet ipsum dignissim egestas. Morbi tincidunt rhoncus urna eget placerat.</p>
-							<p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p>
+								<p>테스트 아이디(id=root,pw=admin)</p>
+
+						<h3>사이트 구성</h3>
+						<p>Spring Framework 4.17 구성</p>
+						<p>발자취 홈페이지, 관리자 페이지로 구성</p>
+						<p>구현내용 : 메인 페이지(시간 별 접속자 수, 조회수 Top 5 유적지, 사용자 별점 비율 통계), 로그인(Spring Security), 에디터 추천코스 관리(Summer Note),유적지 카테고리 분류,공지사항 관리</p>
+						<p>	개발 환경 : STS, ATOM, Mysql , AWS, Putty, FileZila, Github, Tomcat9.0</p>
+						<p>	사용 기술 : Java, Jsp, JavaScript, Ajax, MySQL, MyBatis, Bootstrap, Chart.js, Summer Note ,Spring Security</p>
+
+						<h3>본인 수행 업무</h3>
+						<p>메인 페이지 통계, Spring Security 적용 로그인, 카테고리 분류<br></p>
+						<p>	팀장, 프로젝트 총괄, 구상 및 실현 계획 작성, 프레젠테이션 진행,<br>
+							화면 설계, DB설계 및 구성, 백엔드 구성, 아마존 AWS EC2-RDS 구성 도메인 연결
+						</p>
+						<p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p>
 						</div>
 
 					</article><!--End Project Item -->
@@ -476,7 +567,7 @@ $(function(){
 						<div class="hover-mask">
 							<h2 class="project-title">Project Title</h2><!--Project Title -->
 							<p>Subtitle</p><!--Project Subtitle -->
-						</div>
+						</div>x
 
 						<!--==== Project Preview HTML ====-->
 
@@ -623,6 +714,7 @@ $(function(){
 										<p id="sdbr-date"></p>
 										<p id="sdbr-client"></p>
 										<p id="sdbr-link"><a href="#link" target="_blank"></a></p>
+										<p id="sdbr-git"><a href="#link" target="_blank"></a></p>
 										<p id="sdbr-descr"></p>
 									</div>
 									<div id="project-content" class="col-md-8 col-md-offset-1">
@@ -642,97 +734,102 @@ $(function(){
 		<!-- ==============================================
 		DRIBBLE
 		=============================================== -->
-		<section id="dribbble">
-			<h1 class="dribbble-button"><a href="#" target="_blank">My Dribbble Shots</a></h1>
-				<div class="row">
-					<div class="col-md-2 col-sm-4 col-xs-6">
-						<a href="#link" target="_blank"><img class="img-responsive" src="assets/placeholder-375x250.jpg"  alt=""></a>
-					</div>
-					<div class="col-md-2 col-sm-4 col-xs-6">
-						<a href="#link" target="_blank"><img class="img-responsive" src="assets/placeholder-375x250.jpg"  alt=""></a>
-					</div>
-					<div class="col-md-2 col-sm-4 col-xs-6">
-						<a href="#link" target="_blank"><img class="img-responsive" src="assets/placeholder-375x250.jpg"  alt=""></a>
-					</div>
-					<div class="col-md-2 col-sm-4 col-xs-6">
-						<a href="#link" target="_blank"><img class="img-responsive" src="assets/placeholder-375x250.jpg"  alt=""></a>
-					</div>
-					<div class="col-md-2 col-sm-4 col-xs-6">
-						<a href="#link" target="_blank"><img class="img-responsive" src="assets/placeholder-375x250.jpg"  alt=""></a>
-					</div>
-					<div class="col-md-2 col-sm-4 col-xs-6">
-						<a href="#link" target="_blank"><img class="img-responsive" src="assets/placeholder-375x250.jpg"  alt=""></a>
-					</div>
-				</div>
-		</section>
+
 		<!-- ==============================================
 		CONTACT
 		=============================================== -->
-		<section id="contact" class="dark-bg light-typo padding-top">
+		<section id="contact" class="dark-bg light-typo padding-top-bottom"  style="background-color:black;">
 
 			<div class="container">
 
-				<header class="section-header text-center">
+					<header class="section-header text-center">
 
-					<h1 class="scrollimation scale-in">Drop Me a Line</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/> Aenean purus felis, condimentum et tempor in, commodo id nibh. Fusce a lacus arcu.</p>
+						<h1 class="scrollimation scale-in in">Contact</h1>
+						<p>미래를 보고 채용할 신입 개발자가 필요하시다면 연락 주십시오.<br>
+	                    귀사와 꾸준히 함께할 가치있는 사원이 될 것입니다.</p>
 
-				</header>
+					</header>
+	                <div class="contactall">
+	                    <div class="contactcon">
+	                        <div class="contactleft">
+	                            <h1>
+	                                Name
+	                            </h1>
+	                        </div>
+	                        <div class="contactright">
+	                            <h1>
+	                                김윤제
+	                            </h1>
+	                        </div>
+	                    </div>
+	                    <div class="contactcon">
+	                        <div class="contactleft">
+	                            <h1>
+	                                Phone
+	                            </h1>
+	                        </div>
+	                        <div class="contactright">
+	                           <h1>
+	                               <a href="tel:010-4071-2232">010-4071-2232</a>
+	                           </h1>
 
-				<form  id="contact-form" class="bl_form text-center" action="contact.php" method="post" novalidate>
-					<span class="field-wrap scrollimation fade-right">
-						<label class="control-label" for="contact-name">Name</label>
-						<input id="contact-name" name="contactName" type="text" class="label_better requiredField" data-new-placeholder="Name" placeholder="Name" data-error-empty="*Enter your name">
-					</span>
-					<span class="field-wrap scrollimation fade-in">
-						<label class="control-label" for="contact-mail">Email</label>
-						<input id="contact-mail" name="email" type="email" class="label_better requiredField" data-new-placeholder="Email Address" placeholder="Email Address" data-error-empty="*Enter your email" data-error-invalid="x Invalid email address">
-					</span>
-					<span class="field-wrap scrollimation fade-left">
-						<label class="control-label" for="contact-message">Message</label>
-						<textarea id="contact-message" name="comments" rows="1" class="label_better requiredField" data-new-placeholder="Message" placeholder="Message" data-error-empty="*Enter your message"></textarea>
-					</span>
+	                        </div>
+	                    </div>
+	                    <div class="contactcon">
+	                        <div class="contactleft">
+	                            <h1>
+	                                Mail
+	                            </h1>
+	                        </div>
+	                        <div class="contactright">
+	                            <h1>
+	                                <a href="mailto:forteas2003@hanmail.net">forteas2003@hanmail.net</a>
+	                            </h1>
+	                        </div>
+	                    </div>
+	                    <div class="contactcon">
+	                        <div class="contactleft">
+	                            <h1>
+	                                Address
+	                            </h1>
+	                        </div>
+	                        <div class="contactright">
+	                            <h1>
+	                                서울시 성북구 정릉동
+	                            </h1>
+	                        </div>
+	                    </div>
+					</div>
 
-					<p class="text-center"><button  name="submit" type="submit" class="btn btn-meflat icon-left" data-error-message="Error!" data-sending-message="Sending..." data-ok-message="Message Sent"><i class="fa fa-paper-plane"></i>Send Message</button></p>
-					<input type="hidden" name="submitted" id="submitted" value="true" />
 
-				</form>
-
-			</div>
+				</div>
 
 		</section>
+		<footer id="main-footer" class="dark-bg light-typo" style="background-color:black;">
 
+					<div class="container">
+
+
+
+						<div class="row">
+
+							<div class="col-sm-6">
+
+							</div>
+
+							<div class="col-sm-6 text-right">
+								<p>©Copyright 2019 YJKIM </p>
+							</div>
+
+						</div>
+
+					</div>
+
+				</footer>
 		<!-- ==============================================
 		FOOTER
 		=============================================== -->
 
-		<footer id="main-footer" class="dark-bg light-typo">
-
-			<div class="container">
-
-				<hr>
-
-				<div class="row">
-
-					<div class="col-sm-6">
-						<ul class="social-links">
-							<li class="scrollimation fade-right d4"><a href="#link"><i class="fa fa-twitter fa-fw"></i></a></li>
-							<li class="scrollimation fade-right d3"><a href="#link"><i class="fa fa-facebook fa-fw"></i></a></li>
-							<li class="scrollimation fade-right d2"><a href="#link"><i class="fa fa-google-plus fa-fw"></i></a></li>
-							<li class="scrollimation fade-right d1"><a href="#link"><i class="fa fa-dribbble fa-fw"></i></a></li>
-							<li class="scrollimation fade-right"><a href="#link"><i class="fa fa-linkedin fa-fw"></i></a></li>
-						</ul>
-					</div>
-
-					<div class="col-sm-6 text-right">
-						<p>&copy;2014 Me Flat Theme by <a href="http://q-themes.net/">Qthemes</a></p>
-					</div>
-
-				</div>
-
-			</div>
-
-		</footer>
 
 
 		<!-- ==============================================

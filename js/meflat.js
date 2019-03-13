@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	
+
 	/*============================================
 	Navigation Functions
 	==============================================*/
@@ -7,7 +7,7 @@ $(document).ready(function() {
 		$('#main-nav').removeClass('scrolled');
 	}
 	else{
-		$('#main-nav').addClass('scrolled');    
+		$('#main-nav').addClass('scrolled');
 	}
 
 	$(window).scroll(function(){
@@ -15,10 +15,10 @@ $(document).ready(function() {
 			$('#main-nav').removeClass('scrolled');
 		}
 		else{
-			$('#main-nav').addClass('scrolled');    
+			$('#main-nav').addClass('scrolled');
 		}
 	});
-	
+
 	/*============================================
 	Header Functions
 	==============================================*/
@@ -30,14 +30,14 @@ $(document).ready(function() {
 		useCSS: true,
 		controlNav: false,
 		directionNav: false,
-		pauseOnAction: false, 
+		pauseOnAction: false,
 		pauseOnHover: false,
 		smoothHeight: false
 	});
-	
+
 	$("#home .text-col h1").fitText(0.9, { minFontSize: '38px', maxFontSize: '63px' });
 	$("#home .text-col p").fitText(1.2, { minFontSize: '18px', maxFontSize: '32px' });
-	
+
 	if($('#home .imac-screen').length){
 		$('.imac-screen img').load(function(){
 			$('#home .text-col h1, #home .text-col p, #home .imac-frame').addClass('in');
@@ -63,7 +63,7 @@ $(document).ready(function() {
 			});
 		});
 	},{offset:'80%'});
-	
+
 	/*============================================
 	Project thumbs - Masonry
 	==============================================*/
@@ -127,37 +127,42 @@ $(document).ready(function() {
 		for (var i = 0; i < slides.length; ++i) {
 			slidesHtml = slidesHtml + '<li><img src='+slides[i]+' alt=""></li>';
 		}
-		
+
 		slidesHtml = slidesHtml + '</ul>';
-		
+
 
 		$('#project-modal').on('show.bs.modal', function () {
 			$(this).find('#hdr-title').text(title);
 			$(this).find('#sdbr-title').text(title);
 			$(this).find('#project-content').html(descr);
 			$(this).find('.screen').addClass('flexslider').html(slidesHtml);
-			
+
 			if(elemDataCont.data('category')){
 				$(this).find('#sdbr-category').show().text(elemDataCont.data('category'))
 			}else{$(this).find('#sdbr-category').hide();}
-			
+
 			if(elemDataCont.data('date')){
 				$(this).find('#sdbr-date').show().text(elemDataCont.data('date'))
 			}else{$(this).find('#sdbr-date').hide();}
-			
+
 			if(elemDataCont.data('client')){
 				$(this).find('#sdbr-client').show().text(elemDataCont.data('client'))
 			}else{$(this).find('#sdbr-client').hide();}
-			
+
 			if(elemDataCont.data('link')){
 				var extLink = elemDataCont.data('link').split(',');
 				$(this).find('#sdbr-link').show().find('a').text(extLink[0]).attr('href',extLink[1]);
 			}else{$(this).find('#sdbr-link').hide();}
-			
+
+			if(elemDataCont.data('git')){
+				var extLink = elemDataCont.data('git').split(',');
+				$(this).find('#sdbr-git').show().find('a').text(extLink[0]).attr('href',extLink[1]);
+			}else{$(this).find('#sdbr-git').hide();}
+
 			if(elemDataCont.data('descr')){
 				$(this).find('#sdbr-descr').show().text(elemDataCont.data('descr'))
 			}else{$(this).find('#sdbr-descr').hide();}
-			
+
 			setTimeout(function(){
 				$('.screen.flexslider').flexslider({
 					prevText: '<i class="fa fa-angle-left"></i>',
@@ -165,7 +170,7 @@ $(document).ready(function() {
 					slideshowSpeed: 3000,
 					animation: 'slide',
 					controlNav: false,
-					pauseOnAction: false, 
+					pauseOnAction: false,
 					pauseOnHover: true,
 					start: function(){
 						$('#project-modal .screen')
@@ -175,7 +180,7 @@ $(document).ready(function() {
 				});
 			},1000);
 		}).modal({backdrop:false});
-		
+
 	});
 
 	$('#project-modal').on('hidden.bs.modal', function () {
@@ -186,8 +191,8 @@ $(document).ready(function() {
 			.html('')
 			.flexslider('destroy');
 	});
-	
-	
+
+
 	/*============================================
 	ScrollTo Links
 	==============================================*/
@@ -203,7 +208,7 @@ $(document).ready(function() {
 	/*============================================
 	Contact Form
 	==============================================*/
-	
+
 	$(".label_better").label_better({
 	  easing: "bounce",
 	  offset:5
@@ -213,7 +218,7 @@ $(document).ready(function() {
 	Tooltips
 	==============================================*/
 	$("[data-toggle='tooltip']").tooltip();
-	
+
 	/*============================================
 	Placeholder Detection
 	==============================================*/
@@ -262,4 +267,4 @@ $(document).ready(function() {
 		},1000);
 	}
 
-});	
+});
