@@ -370,6 +370,7 @@ a:focus,
 
 .jumbotron {
 	background-image: url("../imgs/background.png");
+
 	background-size:100% 100%;
 
     color:#fff;
