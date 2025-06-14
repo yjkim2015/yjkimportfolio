@@ -1,913 +1,1367 @@
 ﻿<!DOCTYPE html>
 <html lang="en-US" class="no-js">
-	<head>
+<head>
 
-		<!-- ==============================================
-		Title and Meta Tags
-		=============================================== -->
-		<meta charset="utf-8">
-		<title>김윤제 포트폴리오</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- ==============================================
+    Title and Meta Tags
+    =============================================== -->
+    <meta charset="utf-8">
+    <title>김윤제 포트폴리오</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-		<!-- ==============================================
-		Favicons
-		=============================================== -->
-		<link rel="shortcut icon" href="assets/favicon.ico">
-		<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="assets/apple-touch-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="assets/apple-touch-icon-114x114.png">
+    <!-- ==============================================
+    Favicons
+    =============================================== -->
+    <link rel="shortcut icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/apple-touch-icon-114x114.png">
 
-		<!-- ==============================================
-		CSS
-		=============================================== -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/font-awesome.css">
-		<link rel="stylesheet" href="css/flexslider.css">
-		<link rel="stylesheet" href="css/meflat-blue.css">
+    <!-- ==============================================
+    CSS
+    =============================================== -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/meflat-blue.css">
 
 
-		<!-- ==============================================
-		Fonts
-		=============================================== -->
-		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,300italic,200,400italic,600,600italic' rel='stylesheet' type='text/css'>
+    <!-- ==============================================
+    Fonts
+    =============================================== -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,300italic,200,400italic,600,600italic'
+          rel='stylesheet' type='text/css'>
 
-		<!-- ==============================================
-		JS
-		=============================================== -->
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="js/libs/jquery-1.9.1.min.js">\x3C/script>')</script>
-		<!--[if lt IE 9]>
-			<script src="js/respond.min.js"></script>
-		<![endif]-->
-		<script type="text/javascript" src="js/libs/modernizr.min.js"></script>
-<style>
-@import url(https://fonts.googleapis.com/earlyaccess/hanna.css);
-            @import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-            h1, h2, h3, h4, h5, h6,p{
-                font-family: 'Roboto Slab', 'Nanum Gothic', serif;
-          /*      font-weight: 100 !important;*/
+    <!-- ==============================================
+    JS
+    =============================================== -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.9.1.min.js">\x3C/script>')</script>
+    <!--[if lt IE 9]>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
+    <style>
+        @import url(https://fonts.googleapis.com/earlyaccess/hanna.css);
+                    @import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+                    h1, h2, h3, h4, h5, h6,p{
+                        font-family: 'Roboto Slab', 'Nanum Gothic', serif;
+                  /*      font-weight: 100 !important;*/
+                    }
+        .timeline{
+            border-left: 3px solid #38A5DB;
+            border-bottom-right-radius: 2px;
+            border-top-right-radius: 2px;
+            position: relative;
+            padding: 0 30px;
+            margin-left: 280px;
+        }
+        .timeline .item{
+            position: relative;
+        margin-bottom: 45px;
+        }
+        .timeline .place{
+            margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 20px;
+        font-weight: 300;
+        }
+        .timeline .location{
+            position: absolute;
+        right: 0;
+        top: 2px;
+        color: #8a8a8a;
+        }
+        .timeline .job-meta{
+            position: absolute;
+        left: -280px;
+        top: 0;
+        }
+        .timeline .job-meta .title{
+            font-size: 18px;
+        color: #38A5DB;
+        max-width: 220px;
+        }
+        .timeline .job-meta .time{
+            color: #8a8a8a;
+        }
+        .timeline .job-desc{
+                color: #666;
+        }
+        .contactall{
+            width: 50%;
+        min-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        }
+        .contactcon{
+            max-width: 350px;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+        .contactleft{
+            width: 20%;
+        min-width: 80px;
+        text-align: left;
+        vertical-align: top;
+        }
+        .contactright{
+            width: 68%;
+        min-width: 212px;
+        text-align: left;
+        padding-left: 5%;
+        vertical-align: top;
+        }
+        .contactleft, .contactright {
+            display: inline-block;
+        }
+        .contactcon * {
+            font-size: 20px;
+            font-family: inherit;
+        }
+        #sdbr-git{
+            width:350px;
+        }
+        .Skill_image_container {
+            text-align: center;
+            display: inline-block;
+            width: 114px;
+            height: 116px;
+            border-radius: 30px 30px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin-right: 2rem;
+            box-shadow: 0 3px 6px rgba(0,0,0,.2), 0 3px 6px rgba(0,0,0,.2);
+                margin-bottom:2rem;
+        }
+        .Skill_label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            border-radius: 30px 30px;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            opacity: .8;
+            font-weight: 400;
+            font-size: 2rem;
+            color: #fff;
+            visibility: hidden;
+        }
+        li {
+            margin-bottom:10px;
+            font-size:15px;
+        }
+    </style>
+    <script>
+        $(function(){
+            var windowWidth=$(window).width();
+            if(windowWidth<=1050){
+                $("#language").width(windowWidth-10);
+                $("#web-skill").width(windowWidth-10);
+                $("#framework").width(windowWidth-10);
+                $("#database").width(windowWidth-10);
+                $("#operating").width(windowWidth-10);
+                $("#etc").width(windowWidth-10);
+
+            }else{
+                $("#language").width(1050);
+                $("#web-skill").width(1050);
+                $("#framework").width(1050);
+                $("#database").width(1050);
+                $("#operating").width(1050);
+                $("#etc").width(1050);
+
             }
-.timeline{
-	border-left: 3px solid #38A5DB;
-    border-bottom-right-radius: 2px;
-    border-top-right-radius: 2px;
-    position: relative;
-    padding: 0 30px;
-    margin-left: 280px;
-}
-.timeline .item{
-	position: relative;
-margin-bottom: 45px;
-}
-.timeline .place{
-	margin-top: 0;
-margin-bottom: 15px;
-font-size: 20px;
-font-weight: 300;
-}
-.timeline .location{
-	position: absolute;
-right: 0;
-top: 2px;
-color: #8a8a8a;
-}
-.timeline .job-meta{
-	position: absolute;
-left: -280px;
-top: 0;
-}
-.timeline .job-meta .title{
-	font-size: 18px;
-color: #38A5DB;
-max-width: 220px;
-}
-.timeline .job-meta .time{
-	color: #8a8a8a;
-}
-.timeline .job-desc{
-	    color: #666;
-}
-.contactall{
-	width: 50%;
-min-width: 300px;
-margin-left: auto;
-margin-right: auto;
-}
-.contactcon{
-	max-width: 350px;
-    margin-left: auto;
-    margin-right: auto;
+            if(windowWidth<=750){
+                $(".timeline").css("margin-left",0);
+                $(".timeline .job-meta").css("position","static");
+                $(".timeline .job-meta").css("margin-bottom","15px");
+            }else{
+                $(".timeline").css("margin-left",280);
+                $(".timeline .job-meta").css("position","absolute");
+                $(".timeline .job-meta").css("margin-bottom","0");
+            }
+            $(window).resize(function(){
+                var windowWidth=$(window).width();
+                console.log(windowWidth);
+                if(windowWidth<=750){
+                    $(".timeline").css("margin-left",0);
+                    $(".timeline .job-meta").css("position","static");
+                    $(".timeline .job-meta").css("margin-bottom","15px");
+                }else{
+                    $(".timeline").css("margin-left",280);
+                    $(".timeline .job-meta").css("position","absolute");
+                    $(".timeline .job-meta").css("margin-bottom","0");
+                }
+                if(windowWidth<=1050){
+                    $("#language").width(windowWidth-10);
+                    $("#web-skill").width(windowWidth-10);
+                    $("#framework").width(windowWidth-10);
+                    $("#database").width(windowWidth-10);
+                    $("#operating").width(windowWidth-10);
+                    $("#etc").width(windowWidth-10);
+
+                }else{
+                    $("#language").width(1050);
+                    $("#web-skill").width(1050);
+                    $("#framework").width(1050);
+                    $("#database").width(1050);
+                    $("#operating").width(1050);
+                    $("#etc").width(1050);
+
+                }
+            });
+
+            $(".Skill_image_container").mouseenter(function(){
+                $(this).children().css("visibility","visible");
+                    //$(this .Skill_label).css("visibility","visible");
+            });
+            $(".Skill_image_container").mouseleave(function(){
+                $(this).children().css("visibility","hidden");
+            });
+        });
+    </script>
+</head>
+
+<body data-spy="scroll" data-target="#main-nav" data-offset="400">
+<!-- ==============================================
+MAIN NAV
+=============================================== -->
+<div id="main-nav" class="navbar navbar-fixed-top">
+    <div class="container">
+
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#site-nav">
+                <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+
+            <!-- ======= LOGO (for small screens)========-->
+            <a class="navbar-brand visible-xs scrollto" href="#home">YJKIM</a>
+
+        </div>
+
+        <div id="site-nav" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#about" class="scrollto">ABOUT ME</a>
+                </li>
+                <li>
+                    <a href="#portfolio" class="scrollto">My Works</a>
+                </li>
+
+                <li id="logo">
+                    <a href="#home" class="scrollto">
+                        <h1>Y<span>J</span></h1>
+                    </a>
+                </li>
+                <li>
+                    <a href="#resume" class="scrollto">RESUME</a>
+                </li>
+                <li>
+                    <a href="#contact" class="scrollto">Contact</a>
+                </li>
+            </ul>
+        </div><!--End navbar-collapse -->
+
+    </div><!--End container -->
+
+</div><!--End main-nav -->
+
+<!-- ==============================================
+HEADER
+=============================================== -->
+<header id="home" class="jumbotron">
+
+    <div class="container">
 
-}
-.contactleft{
-	width: 20%;
-min-width: 80px;
-text-align: left;
-vertical-align: top;
-}
-.contactright{
-	width: 68%;
-min-width: 212px;
-text-align: left;
-padding-left: 5%;
-vertical-align: top;
-}
-.contactleft, .contactright {
-    display: inline-block;
-}
-.contactcon * {
-    font-size: 20px;
-    font-family: inherit;
-}
-#sdbr-git{
-	width:350px;
-}
-.Skill_image_container {
-    text-align: center;
-    display: inline-block;
-    width: 114px;
-    height: 116px;
-    border-radius: 30px 30px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin-right: 2rem;
-    box-shadow: 0 3px 6px rgba(0,0,0,.2), 0 3px 6px rgba(0,0,0,.2);
-		margin-bottom:2rem;
-}
-.Skill_label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #000;
-    border-radius: 30px 30px;
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    opacity: .8;
-    font-weight: 400;
-    font-size: 2rem;
-    color: #fff;
-    visibility: hidden;
-}
-</style>
-<script>
-$(function(){
-	var windowWidth=$(window).width();
-	if(windowWidth<=1050){
-		$("#language").width(windowWidth-10);
-		$("#web-skill").width(windowWidth-10);
-		$("#framework").width(windowWidth-10);
-		$("#database").width(windowWidth-10);
-		$("#operating").width(windowWidth-10);
-		$("#etc").width(windowWidth-10);
+        <div class="row">
 
-	}else{
-		$("#language").width(1050);
-		$("#web-skill").width(1050);
-		$("#framework").width(1050);
-		$("#database").width(1050);
-		$("#operating").width(1050);
-		$("#etc").width(1050);
+            <div class="col-sm-12 text-col" style="text-align:center;">
 
-	}
-	if(windowWidth<=750){
-		$(".timeline").css("margin-left",0);
-		$(".timeline .job-meta").css("position","static");
-		$(".timeline .job-meta").css("margin-bottom","15px");
-	}else{
-		$(".timeline").css("margin-left",280);
-		$(".timeline .job-meta").css("position","absolute");
-		$(".timeline .job-meta").css("margin-bottom","0");
-	}
-	$(window).resize(function(){
-		var windowWidth=$(window).width();
-		console.log(windowWidth);
-		if(windowWidth<=750){
-			$(".timeline").css("margin-left",0);
-			$(".timeline .job-meta").css("position","static");
-			$(".timeline .job-meta").css("margin-bottom","15px");
-		}else{
-			$(".timeline").css("margin-left",280);
-			$(".timeline .job-meta").css("position","absolute");
-			$(".timeline .job-meta").css("margin-bottom","0");
-		}
-		if(windowWidth<=1050){
-			$("#language").width(windowWidth-10);
-			$("#web-skill").width(windowWidth-10);
-			$("#framework").width(windowWidth-10);
-			$("#database").width(windowWidth-10);
-			$("#operating").width(windowWidth-10);
-			$("#etc").width(windowWidth-10);
+                <h2> 끝 없이 성장하는 개발자 김윤제의 포트폴리오입니다</h2>
 
-		}else{
-			$("#language").width(1050);
-			$("#web-skill").width(1050);
-			$("#framework").width(1050);
-			$("#database").width(1050);
-			$("#operating").width(1050);
-			$("#etc").width(1050);
 
-		}
-	});
-
-	$(".Skill_image_container").mouseenter(function(){
-		$(this).children().css("visibility","visible");
-			//$(this .Skill_label).css("visibility","visible");
-	});
-	$(".Skill_image_container").mouseleave(function(){
-		$(this).children().css("visibility","hidden");
-	});
-});
-</script>
-	</head>
-
-	<body data-spy="scroll" data-target="#main-nav" data-offset="400">
-		<!-- ==============================================
-		MAIN NAV
-		=============================================== -->
-		<div id="main-nav" class="navbar navbar-fixed-top">
-			<div class="container">
-
-				<div class="navbar-header">
-
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#site-nav">
-						<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-					</button>
-
-					<!-- ======= LOGO (for small screens)========-->
-					<a class="navbar-brand visible-xs scrollto" href="#home">YJKIM</a>
-
-				</div>
-
-				<div id="site-nav" class="navbar-collapse collapse">
-					<ul class="nav navbar-nav">
-						<li>
-							<a href="#about" class="scrollto">ABOUT ME</a>
-						</li>
-						<li>
-							<a href="#portfolio" class="scrollto">My Works</a>
-						</li>
-
-						<li id="logo">
-							<a href="#home" class="scrollto">
-								<h1>Y<span>J</span></h1>
-							</a>
-						</li>
-						<li>
-							<a href="#resume" class="scrollto">RESUME</a>
-						</li>
-						<li>
-							<a href="#contact" class="scrollto">Contact</a>
-						</li>
-					</ul>
-				</div><!--End navbar-collapse -->
-
-			</div><!--End container -->
-
-		</div><!--End main-nav -->
-
-		<!-- ==============================================
-		HEADER
-		=============================================== -->
-		<header id="home" class="jumbotron">
-
-			<div class="container">
-
-				<div class="row">
-
-					<div class="col-sm-12 text-col" style="text-align:center;">
-
-						<h2> 끝 없이 성장하는 개발자 김윤제의 포트폴리오입니다</h2>
-
-
-					</div>
-
-
-
-				</div>
-
-			</div>
-
-		</header><!--End header -->
-
-		<section id="about" class="dark-bg light-typo padding-top-bottom" style="color:black; background-color:white;">
-
-			<div class="container" style="width:100%;">
-
-				<header class="section-header text-center">
-
-					<h1 class="scrollimation scale-in">About Me</h1>
-
-				</header>
-
-				<div class="row">
-
-					<div class="col-sm-8 col-sm-offset-2">
-
-						<img class="img-responsive img-center img-circle scrollimation fade-left" src="imgs/이력서사진.png" alt="" />
-
-						<p class="text-center scrollimation fade-in">항상 배움의 자세로 새로운 분야에 도전하고 있으며 끊임없이 노력하는 사람입니다.<br><br>성실한 과정과 탄탄한 결과로 보여드리겠습니다. <br> 좋은 인연으로 함께했으면 좋겠습니다. </p>
-
-					</div>
-
-				</div>
-			</div>
-
-		</section>
-		<div class="container" style="width:100%; background-color:gray" >
-
-			<div class="row skills" style="color:white;">
-			<div id='language' style="width:1050px; margin:auto; text-align:center;">
-				<h1 class="text-center scrollimation fade-in in">Skills</h1>
-				<br>
-				<h2 class="Skill_Title" style="margin:auto; text-align: center;"> Language</h2><br>
-
-
-
-
-				<div class="Skill_image_container" style="background-image:url('imgs/java.png'); background-size: 100% 100%;">
-						<div class="Skill_label">Intermediate</div>
-				</div>
-
-				<div class="Skill_image_container" style="background-image:url('imgs/js.png'); background-size:100% 100%;">
-						<div class="Skill_label">Intermediate</div>
-				</div>
-
-			</div><!--End row -->
-			<div id="web-skill"  style="width:1050px; margin:auto; text-align:center;">
-				<h2 class="Skill_Title" style="margin:auto; text-align: center;"> Web Skils</h2><br>
-				<div class="Skill_image_container" style="background-image:url('imgs/html.png'); background-size:100% 100%;">
-						<div class="Skill_label">Intermediate</div>
-				</div>
-				<div class="Skill_image_container" style="background-image:url('imgs/css.png'); background-size:100% 100%;">
-						<div class="Skill_label">Intermediate</div>
-				</div>
-				<div class="Skill_image_container" style="background-image:url('imgs/js.png'); background-size:100% 100%;">
-						<div class="Skill_label">Intermediate</div>
-				</div>
-				<div class="Skill_image_container" style="background-image:url('imgs/jquery.png'); background-size:100% 100%;">
-						<div class="Skill_label">Intermediate</div>
-				</div>
-			</div>
-			<div id="framework" style="width:1050px; margin:auto; text-align:center;">
-				<h2 class="Skill_Title" style="margin:auto; text-align: center;"> FrameWork</h2><br>
-				<div class="Skill_image_container" style="background-image:url('imgs/spring.png'); background-size:100% 100%;">
-						<div class="Skill_label">Intermediate</div>
-				</div>
-				<div class="Skill_image_container" style="background-image:url('imgs/vue.png'); background-size:100% 100%;">
-						<div class="Skill_label">Basic</div>
-				</div>
-
-				<div class="Skill_image_container" style="background-image:url('imgs/mybatis.png'); background-size:100% 100%;">
-						<div class="Skill_label">Intermediate</div>
-				</div>
-			</div>
-			<div id="database" style="width:1050px; margin:auto; text-align:center;">
-				<h2 class="Skill_Title" style="margin:auto; text-align: center;"> DataBase</h2><br>
-				<div class="Skill_image_container" style="background-image:url('imgs/mysql.png'); background-size:100% 100%;">
-						<div class="Skill_label">Intermediate</div>
-				</div>
-				<div class="Skill_image_container" style="background-image:url('imgs/oracle.png'); background-size:100% 100%;">
-						<div class="Skill_label">Intermediate</div>
-				</div>
-				<div class="Skill_image_container" style="background-image:url('imgs/postgres.png'); background-size:100% 100%;">
-						<div class="Skill_label">Intermediate</div>
-				</div>
-
-			</div>
-			<div id="operating" style="width:1050px; margin:auto;text-align:center;">
-				<h2 class="Skill_Title" style="margin:auto; text-align: center;"> Operating System</h2><br>
-				<div class="Skill_image_container" style="background-image:url('imgs/window.png'); background-size:100% 100%;">
-						<div class="Skill_label">Basic</div>
-				</div>
-				<div class="Skill_image_container" style="background-image:url('imgs/linux.png'); background-size:100% 100%;">
-						<div class="Skill_label">Basic</div>
-				</div>
-			</div>
-			<div id="etc" style="width:1050px; margin:auto; text-align:center;">
-				<h2 class="Skill_Title" style="margin:auto; text-align: center;"> Etc</h2><br>
-				<div class="Skill_image_container" style="background-image:url('imgs/github.png'); background-size:100% 100%;">
-						<div class="Skill_label">Basic</div>
-				</div>
-				<div class="Skill_image_container" style="background-image:url('imgs/bootstrap.png'); background-size:100% 100%;">
-						<div class="Skill_label">Basic</div>
-				</div>
-				<div class="Skill_image_container" style="background-image:url('imgs/kafka.png'); background-size:100% 100%;">
-						<div class="Skill_label">Basic</div>
-				</div>
-				<div class="Skill_image_container" style="background-image:url('imgs/jira.png'); background-size:100% 100%;">
-						<div class="Skill_label">Basic</div>
-				</div>
-			</div>
-</div>
-		</div>
-		<section id="portfolio" class="gray-bg padding-top-bottom">
-
-			<div class="container">
-
-				<header class="section-header text-center">
-
-					<h1 class="scrollimation scale-in">My Works</h1>
-
-
-				</header>
-
-				<!--==== Portfolio Filters ====-->
-				<div id="filter-works">
-					<ul>
-						<li class="active scrollimation fade-right d1">
-							<a href="#" data-filter="*">All</a>
-						</li>
-						<li class="scrollimation fade-right">
-							<a href="#" data-filter=".team">Team</a>
-						</li>
-						<li class="scrollimation fade-left">
-							<a href="#" data-filter=".solo">SOLO</a>
-						</li>
-
-					</ul>
-				</div><!--End portfolio filters -->
-
-			</div><!--End portfolio header -->
-
-			<div class="container masonry-wrapper scrollimation fade-in">
-
-				<div id="projects-container">
-
-					<!-- ==============================================
-					SINGLE PROJECT ITEM
-					=============================================== -->
-					<article class="project-item team">
-
-						<img class="img-responsive project-image" src="imgs/foot_main.png"  alt=""><!--Project thumb -->
-
-						<div class="hover-mask">
-							<h2 class="project-title">발자취 </h2>
-							<p>내국인, 외국인을 위한 우리나라 유적지 정보 다국어 정보 제공 웹 서비스</p><!--Project Subtitle -->
-						</div>
-
-						<!--==== Project Preview HTML ====-->
-
-						<div class="sr-only project-description"
-							data-category="유적지 탐방 웹 서비스"
-							data-date="2019.02~2019.03 (4 Week)"
-							data-client="팀 프로젝트"
-							data-link="www.ktrace.tk,http://www.ktrace.tk"
-							data-git="github.com/yjkim2015/trace.git,http://github.com/yjkim2015/trace.git"
-							data-descr="테스트 (ID: forteas2  PW: godqhr2018)(모바일 지원)"
-							data-images="imgs/foot.png"
-						>
-							<h3><strong>사이트 소개 [현재 사이트 운영 종료]</strong></h3>
-							<p>내국인, 외국인을 위한 우리나라 유적지 및 근처 숙소, 음식점 정보 다국어 정보 제공 <br>반응형 웹 서비스 (모바일 지원)</p>
-									<p>테스트 (id=forteas2,pw=godqhr2018)</p>
-
-							<h3><strong>사이트 구성<strong></h3>
-							<p>Spring Framework 4.1.7 구성</p>
-							<p>발자취 홈페이지,관리자 페이지로 구성</p>
-							<p>구현내용: Tour API 유적지 데이터 파싱 및 DB저장, 회원가입, 로그인, 공지사항, 마이페이지, 별점, 댓글, 에디터추천 코스, (지역, 시대, 테마별) 유적지</p>
-							<p>	개발 환경: STS, ATOM, Mysql , AWS, Putty, FileZila, Github, Tomcat9.0</p>
-							<p>	사용 기술: Java, Jsp, JavaScript, Ajax, MySQL, MyBatis, Bootstrap, Three.js, Capcha, Naver Login,
-								Kakao Login, Naver Papgo, Daum Map, Chart.js, Summer Note, Smtp Email</p>
-
-							<h3><strong>본인 수행 업무</strong></h3>
-							<p>발자취 프로젝트 전체 Front 전담(디자인 및 반응형)</p>
-							<p>	Tour API 유적지 데이터 파싱 및 DB저장, [회원가입, 로그인, 유적지(지역, 시대, 테마별), 메인 페이지 Three.js, 별점,
-								 댓글] 백엔드 기능 구현 및 프로젝트 API 전담<br></p>
-							<p>	팀장, 프로젝트 총괄, 구상 및 실현 계획 작성, 프레젠테이션 진행,<br>
-								화면 설계, DB설계 및 구성, 백엔드 구성, AWS EC2-RDS 구성 도메인 연결
-							</p>
-							<p class="text-right"><a class="btn btn-meflat icon-right" href="http://www.ktrace.tk">Visit Website<i class="fa fa-arrow-right"></i></a></p>
-						</div>
-
-					</article>
-					<!-- ==============================================
-					END PROJECT ITEM
-					=============================================== -->
-
-					<article class="project-item team">
-
-						<img class="img-responsive project-image" src="imgs/trace_admin.png"  alt=""><!--Project thumb -->
-
-						<div class="hover-mask">
-							<h2 class="project-title">발자취 관리자</h2><!--Project Title -->
-							<p>발자취-관리자</p><!--Project Subtitle -->
-						</div>
-
-						<!--==== Project Preview HTML ====-->
-
-						<div class="sr-only project-description"
-							data-category="발자취 관리자사이트"
-							data-date="2019.02~2019.03 (4 Week)"
-							data-client="팀 프로젝트"
-							data-link="www.ktraceadmin.tk <br>,http://www.ktraceadmin.tk"
-							data-git="github.com/yjkim2015/trace_admin.git,http://github.com/yjkim2015/trace_admin.git"
-							data-descr="테스트 아이디: root 비밀번호: admin"
-							data-images="imgs/trace_admin.png"
-						>
-						<h3><strong>사이트 소개 [현재 사이트 운영 종료]</strong></h3>
-						<p>발자취 관리자 사이트</p>
-
-								<p>테스트 (id=root,pw=admin)</p>
-
-						<h3><strong>사이트 구성</strong></h3>
-						<p>Spring Framework 4.1.7 구성</p>
-						<p>발자취 홈페이지, 관리자 페이지로 구성</p>
-						<p>구현내용: 메인 페이지(시간 별 접속자 수, 조회수 Top 5 유적지, 사용자 별점 비율 통계), 로그인(Spring Security), 에디터 추천코스 관리(Summer Note),유적지 카테고리 분류,공지사항 관리,댓글 관리</p>
-						<p>	개발 환경: STS, ATOM, Mysql , AWS, Putty, FileZila, Github, Tomcat9.0</p>
-						<p>	사용 기술: Java, Jsp, JavaScript, Ajax, MySQL, MyBatis, Bootstrap, Chart.js, Summer Note ,Spring Security</p>
-
-						<h3><strong>본인 수행 업무</strong></h3>
-						<p>메인 페이지 통계, Spring Security 적용 로그인, 카테고리 분류,댓글 관리 <br></p>
-						<p>	팀장, 프로젝트 총괄, 구상 및 실현 계획 작성, 프레젠테이션 진행,<br>
-							화면 설계, DB설계 및 구성, 백엔드 구성, AWS EC2-RDS 구성 도메인 연결
-						</p>
-						<p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i class="fa fa-arrow-right"></i></a></p>
-						</div>
-
-					</article><!--End Project Item -->
-
-					<article class="project-item solo">
-
-						<img class="img-responsive project-image" src="imgs/with.png"  alt=""><!--Project thumb -->
-
-						<div class="hover-mask">
-							<h2 class="project-title">With</h2><!--Project Title -->
-							<p>해외 여행지의 명소, 맛집 정보들을 제공하고 실시간 채팅을 통하여 동행인을 구할 수 있는 웹 사이트</p><!--Project Subtitle -->
-						</div>
-
-						<!--==== Project Preview HTML ====-->
-
-						<div class="sr-only project-description"
-							data-category="여행 동행 웹사이트"
-							data-date="2018.06~2018.11 (5 Month)"
-							data-client="졸업작품(개인)"
-							data-link=""
-							data-git="github.com/yjkim2015/graduate,http://github.com/yjkim2015/graduate.git"
-							data-images="imgs/with.png"
-						>
-						<h3><strong>사이트 소개</strong></h3>
-						<p>With</p>
-
-								<p>해외 여행지에 홀로 여행을 간 사람들을 위하여 Web-Crawling을 통한 여행지의 명소, 맛집 정보등을 제공해주고 실시간 채팅을 통하여 동행인을 구할 수 있는 웹 사이트</p>
-
-						<h3><strong>사이트 구성</strong></h3>
-						<p>Spring Framework 4.3.8 구성</p>
-						<p>구현내용: 회원가입,로그인,(여행지 맛집, 여행지 명소) Crawling,구글 맵 API,Spring Web Socket을 이용한 멀티 채팅, 댓글, 페이징 처리</p>
-						<p>	개발 환경: STS, ATOM, Mysql , AWS, Putty, FileZila, Github, Tomcat9.0</p>
-						<p>	사용 기술: Java, Jsp, JavaScript, Ajax, MySQL, MyBatis, Bootstrap, Web Crawling, Spring Web Socket, Google Map API</p>
-
-						<h3><strong>제작 후기</strong></h3>
-						<p>
-							Back-End 개발자의 길을 결정한 후 독학으로 공부하며 처음으로 제작했던 웹 프로젝트이기에 개념적으로,기술적으로 부족한 부분들이 많았지만,
-							관련 서적과, 블로그 ,온라인 커뮤니티를 통해 부족한 부분은 밤을 새워가며 해결했습니다.
-							5개월이라는 긴 시간 동안 저의 가능성을 확인 할 수 있었던 작품입니다.
-						</p>
-						</div>
-
-					</article><!--End Project Item -->
-
-
-
-
-
-
-				</div><!-- End projects -->
-
-			</div><!-- End container -->
-
-			<!-- ==============================================
-			PROJECT PREVIEW MODAL (Do not alter this markup)
-			=============================================== -->
-			<div id="project-modal" class="modal fade">
-
-				<div class="modal-dialog">
-
-					<div class="modal-content">
-
-						<div class="modal-header">
-
-							<div class="container">
-
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
-								<h1 id="hdr-title" class="text-center"></h1>
-								<div class="row">
-									<div class="col-md-8 col-md-offset-2">
-										<div class="image-wrapper">
-											<img class="img-responsive" src="assets/chrome.png" alt="">
-											<div class="loader"></div>
-											<div class="screen"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-
-						<div class="modal-body">
-							<div class="container">
-								<div class="row">
-									<div id="project-sidebar" class="col-md-3">
-										<h2 id="sdbr-title"></h2>
-										<p id="sdbr-category"></p>
-										<p id="sdbr-date"></p>
-										<p id="sdbr-client"></p>
-										<p id="sdbr-link"><a href="#link" target="_blank"></a></p>
-										<p id="sdbr-git"><a href="#link" target="_blank"></a></p>
-										<p id="sdbr-descr"></p>
-									</div>
-									<div id="project-content" class="col-md-8 col-md-offset-1">
-									</div>
-								</div>
-
-							</div>
-						</div><!-- End modal-body -->
-
-					</div><!-- End modal-content -->
-
-				</div><!-- End modal-dialog -->
-
-			</div><!-- End modal -->
-
-		</section>
-		<!-- ==============================================
-		SERVICES
-		=============================================== -->
-		<section id="resume" class="experiences-section section">
-           	<div class="container">
-                <header class="section-header text-center" style="margin-top:50px;">
-
-                    <h1 class="scrollimation scale-in in">Resume</h1>
-                    <p>
-                    대학시절 웹 프로그래밍이 재미있어 백엔드 개발자의 길을 걷게 되었습니다. <br>
-										<br>다양한 팀 프로젝트를 통해 협업과 의사소통의 중요성을 배웠으며,<br>
-                    꾸준한 자기 계발과 실력 향상으로 회사에 생산성을 내는 개발자가 될 것입니다.<br><br>
-
-                    </p>
-
-                </header>
-                <h1 class="text-center scrollimation fade-in in">Work Experiences</h1>
-                <br><br>
-                <div class="timeline">
-
-									<div class="item">
-											<div class="work-place">
-													<h3 class="place"><b>티몬 입사 [이커머스 업체]</b></h3>
-													<div class="location"><i class="fas fa-map-marker-alt mr-1"></i>서울 송파구</div>
-											</div>
-											<div class="job-meta">
-													<div class="title">플랫폼개발 주문 파트 REST API 개발</div>
-													<div class="time">2021.09.01~</div>
-											</div><!--//job-meta-->
-											<div class="job-desc">
-												<p>개발 참여 이력<br>
-													<ul>
-															<li>Spring Batch x Spring Cloud x Jenkins 1시간 별 메인 상품 총 판매 액 및 총 판매 개수 집계 배치 처리 </li>
-															<li>Google Analytics4 주문 트래킹 개발 및 연동</li>
-															<li>딜 구조 개선에 따른 주문 개편 및 테스트 코트 최신화 작업 진행 중</li>
-													</ul>
-											</div><!--//job-desc-->
-									</div><!--//item-->
-									<div class="item">
-											<div class="work-place">
-													<h3 class="place"><b> 자바 플레이그라운드 with TDD, 클린코드 2021 [NEXTSTEP]</b></h3>
-													<div class="location"><i class="fas fa-map-marker-alt mr-1"></i>ONLINE</div>
-											</div>
-											<div class="job-meta">
-													<div class="title">Test-Driven Develoment</div>
-													<div class="time">2020.06 ~ </div>
-											</div><!--//job-meta-->
-											<div class="job-desc">
-													<ul>
-															<li>객체 지향 생활 체조 원칙</li>
-															<li>클린코드는 왜 중요한가</li>
-															<li>숫자야구게임 -단위테스트</li>
-															<li>자동차 경주 - TDD</li>
-															<li>상속, 인터페이스</li>
-															<li>함수형 프로그래밍</li>
-													</ul>
-											</div><!--//job-desc-->
-									</div><!--//item-->
-
-
-									<div class="item">
-											<div class="work-place">
-													<h3 class="place"><b>바른개발연구소 입사 [SI 업체]</b></h3>
-													<div class="location"><i class="fas fa-map-marker-alt mr-1"></i>서울 송파구</div>
-											</div>
-											<div class="job-meta">
-													<div class="title">웹&응용프로그램 개발자</div>
-													<div class="time">2019.05.20~2021.08.31</div>
-											</div><!--//job-meta-->
-											<div class="job-desc">
-												<p>개발 참여 이력<br>
-													<ul>
-															<li>2020.09 ~ 2020.10 시흥시청 조사정보 관리 시스템 [Spring Web 기반] </li>
-															<li>2020.06 ~ 				EMF [Spring boot 기반 네트워크 장비 모니터링 시스템]</li>
-															<li>2020.11 ~ 2020.11 View Pro Manger [Spring Web 기반 광 섬유 접합기 관리 시스템]</li>
-															<li>2019.09 ~ 				LGU+ EMS 3.0 [Spring Web 기반 네트워크 장비 모니터링 시스템]</li>
-															<li>2019.06 ~ 2019.09 TACS AGENT [Spring Web 기반 통신 장비 작업 관리 시스템]</li>
-															<li>2019.06 ~ 2019.07 KT-4PORT-GATEWAY  [JAVA 기반 네트워크 장비 모니터링 시스템]</li>
-													</ul>
-											</div><!--//job-desc-->
-									</div><!--//item-->
-
-                    <div class="item">
-                        <div class="work-place">
-                            <h3 class="place"><b>비트 캠프</b></h3>
-                            <div class="location"><i class="fas fa-map-marker-alt mr-1"></i>서울 종로구</div>
-                        </div>
-                        <div class="job-meta">
-                            <div class="title">Java 웹/앱 개발자 과정</div>
-                            <div class="time">2018.08~2019.03</div>
-                        </div><!--//job-meta-->
-                        <div class="job-desc">
-                            <p>대학 시절 백엔드 개발자의 진로 결정 후 비트캠프 종로점으로<br>
-                            Java 기반 웹/앱 개발자 양성 과정 수료<br>
-                            </p>
-                            <ul>
-                                <li>Java 문법 교육, JSP 및 Servlet 구현 </li>
-                                <li>웹 표준 구현 - HTML5, CSS, CSS3, 반응형 웹, JavaScript, JQuery, Ajax</li>
-                                <li>Spring 프레임워크, Mybatis</li>
-                                <li>JSP &amp; Servlet MVC 모델 실무 프로젝트 개발</li>
-
-																<li>
-																	<p>SpringFramework 기반<br>
-																	<p>내국인, 외국인을 위한 우리나라 유적지 정보 다국어 제공 서비스 '발자취' 개발</p></li>
-                            </ul>
-                        </div><!--//job-desc-->
-                    </div><!--//item-->
-
-
-
-                    <div class="item">
-                        <div class="work-place">
-                            <h3 class="place"><b>서경대학교 컴퓨터공학과</b></h3>
-                            <div class="location"><i class="fas fa-map-marker-alt mr-1"></i>서울</div>
-                        </div>
-                        <div class="job-meta">
-                            <div class="title">학사 과정</div>
-                            <div class="time">2015.03 - 2019.02</div>
-                        </div><!--//job-meta-->
-                        <div class="job-desc">
-													<ul>
-														<li><p><b>2017-09-21 추계정보처리 학술대회 논문 게재 및 구두 발표</b></p>
-														<p>논문 제목 - 가상 현실 3D 오브젝트와의 상호작용을 위한 MCSVM 기반 손 제스처 인식</p>
-														<p>논문번호 - KIPS_C2017B0284</p>
-														<p>발표 분야 - S6. 인간과 컴퓨터 상호작용</p>
-														<p>담당 - 알고리즘 서브개발자 및 Unity 메인 개발자 , 논문 구두 발표자</p></li>
-
-														<li>
-															<p><b>2018 hyconhack 참가</b></p>
-															<p>2018 09 14 ~2018 09 15 glosfer 주최 2018 hyconhacks에 참가</p>
-															<p><a href="https://devpost.com/software/the-second-word-of-these-cats"> https://devpost.com/software/the-second-word-of-these-cats</a></p>
-														</li>
-														<li><p><b>2018.06~2018.11 졸업작품</b></p>
-																<p>Spring Framework 기반</p>
-																<p>해외 여행인들이 여행지의 명소,맛집 정보등을 얻고 실시간 채팅을 통하여 동행인을 구할 수 있는 <br>웹 서비스 'WITH' 개발</p>
-														</li>
-														<li><p>2018.12~2019.01</p>
-															<p>Spring boot+vue Framework 기반</p>
-															<p><b>서경대학교 컴퓨터 공학과 학생회비 내역 공개 사이트 개발</b></p>
-														</li>
-
-                            <li><p>컴퓨터공학과 이수</p></li>
-
-													</ul>
-                        </div><!--//job-desc-->
-                    </div><!--//item-->
-
-                </div><!--//timeline-->
             </div>
-        </section>
-
-		<!-- ==============================================
-		FEATURED PROJECT
-		=============================================== -->
 
 
+        </div>
 
-		<!-- ==============================================
-		ABOUT
-		=============================================== -->
+    </div>
 
-		<!-- ==============================================
-		SKILLS
-		=============================================== -->
+</header><!--End header -->
 
- 		<!-- ==============================================
-		PORTFOLIO
-		=============================================== -->
+<section id="about" class="dark-bg light-typo padding-top-bottom" style="color:black; background-color:white;">
 
-		<!-- ==============================================
-		DRIBBLE
-		=============================================== -->
+    <div class="container" style="width:100%;">
 
-		<!-- ==============================================
-		CONTACT
-		=============================================== -->
-		<section id="contact" class="dark-bg light-typo padding-top-bottom"  style="background-color:black;">
+        <header class="section-header text-center">
 
-			<div class="container">
+            <h1 class="scrollimation scale-in">About Me</h1>
 
-					<header class="section-header text-center">
+        </header>
 
-						<h1 class="scrollimation scale-in in">Contact</h1>
-						<p>미래를 보고 채용할 개발자가 필요하시다면 연락 주십시오.<br>
-	                    귀사와 꾸준히 함께할 가치있는 사원이 될 것입니다.</p>
+        <div class="row">
 
-					</header>
-	                <div class="contactall">
-	                    <div class="contactcon">
-	                        <div class="contactleft">
-	                            <h1>
-	                                Name
-	                            </h1>
-	                        </div>
-	                        <div class="contactright">
-	                            <h1>
-	                                김윤제
-	                            </h1>
-	                        </div>
-	                    </div>
+            <div class="col-sm-8 col-sm-offset-2">
 
-	                    <div class="contactcon">
-	                        <div class="contactleft">
-	                            <h1>
-	                                Mail
-	                            </h1>
-	                        </div>
-	                        <div class="contactright">
-	                            <h1>
-	                                <a href="mailto:forteas2003@hanmail.net">forteas2003@hanmail.net</a>
-	                            </h1>
-	                        </div>
-	                    </div>
-	                    <div class="contactcon">
-	                        <div class="contactleft">
-	                            <h1>
-	                                Address
-	                            </h1>
-	                        </div>
-	                        <div class="contactright">
-	                            <h1>
-	                                서울시 성북구 정릉동
-	                            </h1>
-	                        </div>
-	                    </div>
-					</div>
+                <img class="img-responsive img-center img-circle scrollimation fade-left" src="imgs/이력서사진.png" alt=""/>
+
+                <p class="text-center scrollimation fade-in">항상 배움의 자세로 새로운 분야에 도전하고 있으며 끊임없이 노력하는 사람입니다.<br><br>성실한 과정과
+                    탄탄한 결과로 보여드리겠습니다. <br> 좋은 인연으로 함께했으면 좋겠습니다. </p>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<div class="container" style="width:100%; background-color:gray">
+
+    <div class="row skills" style="color:white;">
+        <div id='language' style="width:1050px; margin:auto; text-align:center;">
+            <h1 class="text-center scrollimation fade-in in">Skills</h1>
+            <br>
+            <h2 class="Skill_Title" style="margin:auto; text-align: center;"> Language</h2><br>
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/java.png'); background-size: 100% 100%;">
+                <div class="Skill_label">Advanced</div>
+            </div>
+
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/kotlin.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+
+            <div class="Skill_image_container" style="background-image:url('imgs/c_.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+
+            <div class="Skill_image_container" style="background-image:url('imgs/js.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+            <div class="Skill_image_container" style="background-image:url('imgs/ts.png'); background-size:100% 100%;">
+                <div class="Skill_label">Basic</div>
+            </div>
 
 
-				</div>
+        </div><!--End row -->
+        <div id="web-skill" style="width:1050px; margin:auto; text-align:center;">
+            <h2 class="Skill_Title" style="margin:auto; text-align: center;"> Web Skils</h2><br>
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/html.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+            <div class="Skill_image_container" style="background-image:url('imgs/css.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+            <div class="Skill_image_container" style="background-image:url('imgs/js.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/jquery.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/react.png'); background-size:100% 100%;">
+                <div class="Skill_label">Basic</div>
+            </div>
+            <div class="Skill_image_container" style="background-image:url('imgs/jpa.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+        </div>
+        <div id="framework" style="width:1050px; margin:auto; text-align:center;">
+            <h2 class="Skill_Title" style="margin:auto; text-align: center;"> FrameWork</h2><br>
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/spring.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+            <div class="Skill_image_container" style="background-image:url('imgs/vue.png'); background-size:100% 100%;">
+                <div class="Skill_label">Basic</div>
+            </div>
 
-		</section>
-		<footer id="main-footer" class="dark-bg light-typo" style="background-color:black;">
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/mybatis.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/next.png'); background-size:100% 100%;">
+                <div class="Skill_label">Basic</div>
+            </div>
+            <div class="Skill_image_container" style="background-image:url('imgs/net.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+        </div>
+        <div id="database" style="width:1050px; margin:auto; text-align:center;">
+            <h2 class="Skill_Title" style="margin:auto; text-align: center;"> DataBase</h2><br>
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/mysql.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/oracle.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/postgres.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/redis.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/mongo.png'); background-size:100% 100%;">
+                <div class="Skill_label">Basic</div>
+            </div>
+        </div>
+        <div id="operating" style="width:1050px; margin:auto;text-align:center;">
+            <h2 class="Skill_Title" style="margin:auto; text-align: center;"> Operating System</h2><br>
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/window.png'); background-size:100% 100%;">
+                <div class="Skill_label">Basic</div>
+            </div>
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/linux.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+        </div>
+        <div id="etc" style="width:1050px; margin:auto; text-align:center;">
+            <h2 class="Skill_Title" style="margin:auto; text-align: center;"> Etc</h2><br>
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/github.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/bootstrap.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/kafka.png'); background-size:100% 100%;">
+                <div class="Skill_label">Basic</div>
+            </div>
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/jira.png'); background-size:100% 100%;">
+                <div class="Skill_label">Intermediate</div>
+            </div>
+            <div class="Skill_image_container"
+                 style="background-image:url('imgs/k8s.png'); background-size:100% 100%;">
+                <div class="Skill_label">Basic</div>
+            </div>
+        </div>
+    </div>
+</div>
+<section id="portfolio" class="gray-bg padding-top-bottom">
 
-					<div class="container">
+    <div class="container">
+
+        <header class="section-header text-center">
+
+            <h1 class="scrollimation scale-in">Personal Works</h1>
 
 
+        </header>
 
-						<div class="row">
+        <!--==== Portfolio Filters ====-->
+        <div id="filter-works">
+            <ul>
+                <li class="active scrollimation fade-right d1">
+                    <a href="#" data-filter="*">All</a>
+                </li>
+                <li class="scrollimation fade-right">
+                    <a href="#" data-filter=".team">Team</a>
+                </li>
+                <li class="scrollimation fade-left">
+                    <a href="#" data-filter=".solo">SOLO</a>
+                </li>
 
-							<div class="col-sm-6">
+            </ul>
+        </div><!--End portfolio filters -->
 
-							</div>
+    </div><!--End portfolio header -->
 
-							<div class="col-sm-6 text-right">
-								<p>©Copyright 2019 YJKIM </p>
-							</div>
+    <div class="container masonry-wrapper scrollimation fade-in">
 
-						</div>
+        <div id="projects-container">
 
-					</div>
+            <!-- ==============================================
+            SINGLE PROJECT ITEM
+            =============================================== -->
+            <article class="project-item team">
 
-				</footer>
-		<!-- ==============================================
-		FOOTER
-		=============================================== -->
+                <img class="img-responsive project-image" src="imgs/foot_main.png" alt=""><!--Project thumb -->
+
+                <div class="hover-mask">
+                    <h2 class="project-title">발자취 </h2>
+                    <p>내국인, 외국인을 위한 우리나라 유적지 정보 다국어 정보 제공 웹 서비스</p><!--Project Subtitle -->
+                </div>
+
+                <!--==== Project Preview HTML ====-->
+
+                <div class="sr-only project-description"
+                     data-category="유적지 탐방 웹 서비스"
+                     data-date="2019.02~2019.03 (4 Week)"
+                     data-client="팀 프로젝트"
+                     data-link="www.ktrace.tk,http://www.ktrace.tk"
+                     data-descr="테스트 (ID: forteas2  PW: godqhr2018)(모바일 지원)"
+                     data-images="imgs/foot.png"
+                >
+                    <h3><strong>사이트 소개 [현재 사이트 운영 종료]</strong></h3>
+                    <p>내국인, 외국인을 위한 우리나라 유적지 및 근처 숙소, 음식점 정보 다국어 정보 제공 <br>반응형 웹 서비스 (모바일 지원)</p>
+                    <p>테스트 (id=forteas2,pw=godqhr2018)</p>
+
+                    <h3><strong>사이트 구성<strong></h3>
+                    <p>Spring Framework 4.1.7 구성</p>
+                    <p>발자취 홈페이지,관리자 페이지로 구성</p>
+                    <p>구현내용: Tour API 유적지 데이터 파싱 및 DB저장, 회원가입, 로그인, 공지사항, 마이페이지, 별점, 댓글, 에디터추천 코스, (지역, 시대, 테마별) 유적지</p>
+                    <p> 개발 환경: STS, ATOM, Mysql , AWS, Putty, FileZila, Github, Tomcat9.0</p>
+                    <p> 사용 기술: Java, Jsp, JavaScript, Ajax, MySQL, MyBatis, Bootstrap, Three.js, Capcha, Naver Login,
+                        Kakao Login, Naver Papgo, Daum Map, Chart.js, Summer Note, Smtp Email</p>
+
+                    <h3><strong>본인 수행 업무</strong></h3>
+                    <p>발자취 프로젝트 전체 Front 전담(디자인 및 반응형)</p>
+                    <p> Tour API 유적지 데이터 파싱 및 DB저장, [회원가입, 로그인, 유적지(지역, 시대, 테마별), 메인 페이지 Three.js, 별점,
+                        댓글] 백엔드 기능 구현 및 프로젝트 API 전담<br></p>
+                    <p> 팀장, 프로젝트 총괄, 구상 및 실현 계획 작성, 프레젠테이션 진행,<br>
+                        화면 설계, DB설계 및 구성, 백엔드 구성, AWS EC2-RDS 구성 도메인 연결
+                    </p>
+                    <p class="text-right"><a class="btn btn-meflat icon-right" href="http://www.ktrace.tk">Visit Website<i
+                            class="fa fa-arrow-right"></i></a></p>
+                </div>
+
+            </article>
+            <!-- ==============================================
+            END PROJECT ITEM
+            =============================================== -->
+
+            <article class="project-item team">
+
+                <img class="img-responsive project-image" src="imgs/trace_admin.png" alt=""><!--Project thumb -->
+
+                <div class="hover-mask">
+                    <h2 class="project-title">발자취 관리자</h2><!--Project Title -->
+                    <p>발자취-관리자</p><!--Project Subtitle -->
+                </div>
+
+                <!--==== Project Preview HTML ====-->
+
+                <div class="sr-only project-description"
+                     data-category="발자취 관리자사이트"
+                     data-date="2019.02~2019.03 (4 Week)"
+                     data-client="팀 프로젝트"
+                     data-link="www.ktraceadmin.tk <br>,http://www.ktraceadmin.tk"
+                     data-descr="테스트 아이디: root 비밀번호: admin"
+                     data-images="imgs/trace_admin.png"
+                >
+                    <h3><strong>사이트 소개 [현재 사이트 운영 종료]</strong></h3>
+                    <p>발자취 관리자 사이트</p>
+
+                    <p>테스트 (id=root,pw=admin)</p>
+
+                    <h3><strong>사이트 구성</strong></h3>
+                    <p>Spring Framework 4.1.7 구성</p>
+                    <p>발자취 홈페이지, 관리자 페이지로 구성</p>
+                    <p>구현내용: 메인 페이지(시간 별 접속자 수, 조회수 Top 5 유적지, 사용자 별점 비율 통계), 로그인(Spring Security), 에디터 추천코스 관리(Summer
+                        Note),유적지 카테고리 분류,공지사항 관리,댓글 관리</p>
+                    <p> 개발 환경: STS, ATOM, Mysql , AWS, Putty, FileZila, Github, Tomcat9.0</p>
+                    <p> 사용 기술: Java, Jsp, JavaScript, Ajax, MySQL, MyBatis, Bootstrap, Chart.js, Summer Note ,Spring
+                        Security</p>
+
+                    <h3><strong>본인 수행 업무</strong></h3>
+                    <p>메인 페이지 통계, Spring Security 적용 로그인, 카테고리 분류,댓글 관리 <br></p>
+                    <p> 팀장, 프로젝트 총괄, 구상 및 실현 계획 작성, 프레젠테이션 진행,<br>
+                        화면 설계, DB설계 및 구성, 백엔드 구성, AWS EC2-RDS 구성 도메인 연결
+                    </p>
+                    <p class="text-right"><a class="btn btn-meflat icon-right" href="#external-link">Visit Website<i
+                            class="fa fa-arrow-right"></i></a></p>
+                </div>
+
+            </article><!--End Project Item -->
+
+            <article class="project-item solo">
+
+                <img class="img-responsive project-image" src="imgs/with.png" alt=""><!--Project thumb -->
+
+                <div class="hover-mask">
+                    <h2 class="project-title">With</h2><!--Project Title -->
+                    <p>해외 여행지의 명소, 맛집 정보들을 제공하고 실시간 채팅을 통하여 동행인을 구할 수 있는 웹 사이트</p><!--Project Subtitle -->
+                </div>
+
+                <!--==== Project Preview HTML ====-->
+
+                <div class="sr-only project-description"
+                     data-category="여행 동행 웹사이트"
+                     data-date="2018.06~2018.11 (5 Month)"
+                     data-client="졸업작품(개인)"
+                     data-link=""
+                     data-images="imgs/with.png"
+                >
+                    <h3><strong>사이트 소개</strong></h3>
+                    <p>With</p>
+
+                    <p>해외 여행지에 홀로 여행을 간 사람들을 위하여 Web-Crawling을 통한 여행지의 명소, 맛집 정보등을 제공해주고 실시간 채팅을 통하여 동행인을 구할 수 있는 웹
+                        사이트</p>
+
+                    <h3><strong>사이트 구성</strong></h3>
+                    <p>Spring Framework 4.3.8 구성</p>
+                    <p>구현내용: 회원가입,로그인,(여행지 맛집, 여행지 명소) Crawling,구글 맵 API,Spring Web Socket을 이용한 멀티 채팅, 댓글, 페이징 처리</p>
+                    <p> 개발 환경: STS, ATOM, Mysql , AWS, Putty, FileZila, Github, Tomcat9.0</p>
+                    <p> 사용 기술: Java, Jsp, JavaScript, Ajax, MySQL, MyBatis, Bootstrap, Web Crawling, Spring Web Socket,
+                        Google Map API</p>
+
+                    <h3><strong>제작 후기</strong></h3>
+                    <p>
+                        Back-End 개발자의 길을 결정한 후 독학으로 공부하며 처음으로 제작했던 웹 프로젝트이기에 개념적으로,기술적으로 부족한 부분들이 많았지만,
+                        관련 서적과, 블로그 ,온라인 커뮤니티를 통해 부족한 부분은 밤을 새워가며 해결했습니다.
+                        5개월이라는 긴 시간 동안 저의 가능성을 확인 할 수 있었던 작품입니다.
+                    </p>
+                </div>
+
+            </article><!--End Project Item -->
 
 
+        </div><!-- End projects -->
 
-		<!-- ==============================================
-		SCRIPTS
-		=============================================== -->
+    </div><!-- End container -->
+
+    <!-- ==============================================
+    PROJECT PREVIEW MODAL (Do not alter this markup)
+    =============================================== -->
+    <div id="project-modal" class="modal fade">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <div class="container">
+
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                        <h1 id="hdr-title" class="text-center"></h1>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="image-wrapper">
+                                    <img class="img-responsive" src="assets/chrome.png" alt="">
+                                    <div class="loader"></div>
+                                    <div class="screen"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div id="project-sidebar" class="col-md-3">
+                                <h2 id="sdbr-title"></h2>
+                                <p id="sdbr-category"></p>
+                                <p id="sdbr-date"></p>
+                                <p id="sdbr-client"></p>
+                                <p id="sdbr-link"><a href="#link" target="_blank"></a></p>
+                                <p id="sdbr-git"><a href="#link" target="_blank"></a></p>
+                                <p id="sdbr-descr"></p>
+                            </div>
+                            <div id="project-content" class="col-md-8 col-md-offset-1">
+                            </div>
+                        </div>
+
+                    </div>
+                </div><!-- End modal-body -->
+
+            </div><!-- End modal-content -->
+
+        </div><!-- End modal-dialog -->
+
+    </div><!-- End modal -->
+
+</section>
+<!-- ==============================================
+SERVICES
+=============================================== -->
+<section id="resume" class="experiences-section section">
+    <div class="container">
+        <header class="section-header text-center" style="margin-top:50px;">
+
+            <h1 class="scrollimation scale-in in">Resume</h1>
+            <p>
+                대학시절 웹 프로그래밍이 재미있어 백엔드 개발자의 길을 걷게 되었습니다. <br>
+                <br>다양한 팀 프로젝트를 통해 협업과 의사소통의 중요성을 배웠으며,<br>
+                꾸준한 자기 계발과 실력 향상으로 회사에 생산성을 내는 개발자가 될 것입니다.<br><br>
+
+            </p>
+
+        </header>
+        <div class="pb-3 row">
+            <div class="col"><h2 style="color:#3c78d8">WORK EXPERIENCE <span style="font-size:50%"><span
+                    class="badge badge-secondary">총 6년 2개월</span></span></h2></div>
+        </div>
+        <br><br>
+        <div class="timeline">
+            <div class="item">
+                <div class="work-place">
+                    <h3 class="place"><b>현대오토에버 (Hyundai Autoever)</b></h3>
+                    <i style="color:gray">엔터프라이즈 IT 개발 팀, Backend Developer (Tech Leader)</i>
+                    <div class="location"><i class="fas fa-map-marker-alt mr-1"></i>서울 강남구</div>
+                </div>
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2025.04.07 ~</div>
+                    <div class=""><span
+                            class="mr-1 badge badge-primary" style="background-color:#007bff;">재직 중</span>
+                        <span class="badge badge-info" style="background-color:#17a2b8;">3개월</span></div>
+                </div><!--//job-meta-->
+                <hr>
+                <div class="job-desc">
+                    <ul>
+                        <li>Spring Boot 기반 API 서버 설계 및 개발</li>
+                        <li>DB index 설정</li>
+                        <li>API 성능 개선</li>
+                        <li>Skill Keywords
+                            <div>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Java</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Spring Boot</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Spring Security</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Redis</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Kafka</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">JPA</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Tomcat</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Jenkins</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">k8s</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Grafana</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Prometheus</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">React</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">TypeScript</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Next</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+
+            <div class="item">
+                <div class="work-place">
+                    <h3 class="place"><b>지마켓 (GMarket)</b></h3>
+                    <i style="color:gray">Item Discovery Engineering 팀, Backend Developer</i>
+                    <div class="location"><i class="fas fa-map-marker-alt mr-1"></i>서울 강남구</div>
+                </div>
+                <hr>
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2022.05.16 ~ 2025.03.31</div>
+                    <div class=""><span class="badge badge-info" style="background-color:#17a2b8;">2년 10개월</span></div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    <ul>
+                        <li>.NetFramework 기반 상품상세 API 서버 성능 개선</li>
+                        <li>Redis를 활용한 악성 봇 탐지 시스템 개발</li>
+                        <li>Spring Boot & Kotlin & Java 기반 Mobile App & Web 상품상세 Renewal 프로젝트 (Anna)</li>
+                        <li>Datadog, Grafana 모니터링 시스템 연동, 대시보드 생성</li>
+                        <li>상품평 API 서버 유지 보수</li>
+                        <li>Skill Keywords
+                            <div>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">C#</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Java</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Kotlin</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Spring Boot</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Spring Batch</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">.NET</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Redis</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">JPA</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Tomcat</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Netty</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Jenkins</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">k8s</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Grafana</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Prometheus</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+
+            <div class="item">
+                <div class="work-place">
+                    <h3 class="place"><b>티몬 (TMon)</b></h3>
+                    <i style="color:gray">플랫폼개발 2팀 주문 파트</i>
+                    <div class="location"><i class="fas fa-map-marker-alt mr-1"></i>서울 강남구</div>
+                </div>
+                <hr>
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2021.09.01 ~ 2022.05.13</div>
+                    <div class=""><span class="badge badge-info" style="background-color:#17a2b8;">8개월</span></div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    <ul>
+                        <li>Spring Boot 기반 API 서버 설계 및 개발</li>
+                        <li>Skill Keywords
+                            <div>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Java</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Spring Boot</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Spring Cloud</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Spring Batch</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Tomcat</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Redis</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Mysql</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">MyBatis</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">React</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+
+            <div class="item">
+                <div class="work-place">
+                    <h3 class="place"><b>바른개발연구소 [SI 업체]</b></h3>
+                    <i style="color:gray">SI 개발 2팀</i>
+                    <div class="location"><i class="fas fa-map-marker-alt mr-1"></i>서울 송파구</div>
+                </div>
+                <hr>
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2019.05.20~2021.08.31</div>
+                    <div class=""><span class="badge badge-info" style="background-color:#17a2b8;">2년 3개월</span></div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    <ul>
+                        <li>Spring Boot 기반 API 서버 설계 및 개발</li>
+                        <li>DB 설계 및 쿼리 작성</li>
+                        <li>Linux 서버 세팅 및 모니터링</li>
+                        <li>Skill Keywords
+                            <div>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Java</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">JavaScript</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Spring FrameWork</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Spring Security</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Tomcat</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Mysql</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">MyBatis</span>
+                                <span style="font-weight:400" class="mr-1 badge badge-secondary">Linux</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+        </div><!--//timeline-->
+
+        <div class="pb-3 row">
+            <div class="col"><h2 style="color:#3c78d8">PROJECT</h2></div>
+        </div>
+        <br><br>
+        <div class="timeline">
+            <div class="item">
+                <div class="work-place">
+                    <h3 class="place"><b>차량 품질 예방 가이드</b></h3>
+                    <i style="color:gray">현대오토에버 (Hyundai Autoever)</i>
+                </div>
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2025.04.07 ~</div>
+                </div><!--//job-meta-->
+                <hr>
+                <div class="job-desc">
+                    <ul>
+                        <li>품질 예방 대상 차종 중복 등록과 같은 동시성 처리를 위해 Redis 기반의 분산 락을 적용</li>
+                        <li>API 성능 개선</li>
+                        <li>Spring Security를 통한 사용자 별 권한 처리</li>
+                        <li>Spring 멀티 모듈 구조 및 Hexagonal Architecture 적용</li>
+                        <li>JPA의 타입 안정성을 강화하기 위해 QueryDSL을 적용</li>
+                        <li>Kafka를 통한 시스템 로그 적재</li>
+                    </ul>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+
+            <div class="item">
+                <div class="work-place">
+                    <h3 class="place"><b>Item View Count (지금 이 상품 몇 명이 보고 있어요) 설계 및 구현</b></h3>
+                    <i style="color:gray">지마켓 (Gmarket)</i>
+                </div>
+                <hr>
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2024.09.15 ~ 2024.09.25</div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    <ul>
+                        <li><a href="https://dev.gmarket.com/116">Redis Vs Mongo DB By Item View Count (이 상품 몇명이 보고
+                            있어요)</a></li>
+                    </ul>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+
+            <div class="item">
+                <div class="work-place">
+                    <h3 class="place"><b>Redis를 활용한 악성 봇 탐지 시스템 개발</b></h3>
+                    <i style="color:gray">지마켓 (Gmarket)</i>
+                </div>
+                <hr>
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2024.01.06 ~ 2024.05.03</div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    <ul>
+                        <li>대규모 트래픽으로 인한 API 서버 CPU Max (API 서버 로직 수행 지연)</li>
+                        <li>DB Spike로 DB 서버 부하로 인해 쿼리 수행 및 커넥션 반환 지연 (DB Connection Pool Max)</li>
+                        <li>로드밸런서 => API Server Health Check 시 응답 지연으로 인해 서버 Down 판정</li>
+                        <li>자체 Rate Limitter 개발 (IpAddress, Cookie 기반)</li>
+                        <li><a href="https://dev.gmarket.com/106">Gmarket Mobile Web Vip 악성 봇 대침투 사건</a></li>
+
+                    </ul>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+
+            <div class="item">
+                <div class="work-place">
+                    <h3 class="place"><b>Spring Boot & Kotlin & Java 기반 <br>
+                        Mobile App & Web 상품상세 Renewal 프로젝트 (Anna)</b>
+                    </h3>
+                    <i style="color:gray">지마켓 (Gmarket)</i>
+                </div>
+                <hr>
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2023.11.01 ~ 2025.03.10</div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    <ul>
+                        <li>시스템 아키텍쳐 설계</li>
+                        <li>상품 상세 화면 성격에 맞춰 Spring 멀티 모듈 구조를 적용하여 Aggregator, Biz, Core, Extension, Admin 구성</li>
+                        <li> 통합된 API 모델을 설계하여 데이터 일관성 유지, 변경 사항이 생겨도 앱의 배포를 최소화 하며,
+                            다양한 클라이언트에서 동일한 로직을 재사용할 수 있는 기반을 마련
+                            <br>
+                            <a href="https://dev.gmarket.com/104">통합 플랫폼 API 모델 설계 1</a>
+                            <br>
+                            <a href="https://dev.gmarket.com/105">통합 플랫폼 API 모델 설계 2</a>
+                        </li>
+                        <li> Legacy DB SP 별도 DB 서비스 분리 및 API 전환</li>
+                        <li> Warm up 구현을 통한 서비스 배포 시 마다 Latency 발생으로 인한 에러 처리</li>
+                        <li>Local Cache & Global Cache를 통한 성능 안정화</li>
+
+                        <li>성능 테스트를 통한 시스템의 안정성과 성능 한계를 파악하여 운영 환경에서 최적의 리소스 할당 및 확장 전략을 수립 <br>
+                            (빅스마일데이 대비 목표 2000TPS 대응 가능성 확인.)
+                        </li>
+                    </ul>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+
+            <div class="item">
+                <div class="work-place">
+                    <h3 class="place"><b>.NetFramework 기반 상품상세 API 서버 성능 개선</b></h3>
+                    <i style="color:gray">지마켓 (Gmarket)</i>
+                </div>
+                <hr>
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2023.06.01 ~ 2023.07.01</div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    <ul>
+                        <li><a href="https://dev.gmarket.com/97">Gmarket Mobile Web Vip 레거시 성능 개선기</a></li>
+
+                    </ul>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+
+            <div class="item">
+                <div class="work-place">
+                    <h3 class="place"><b>티몬</b></h3>
+                    <i style="color:gray">플랫폼개발 2팀 주문 파트</i>
+                </div>
+                <hr>
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2021.09.01 ~ 2022.05.13</div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    <ul>
+                        <li>Spring Batch x Spring Cloud x Jenkins 1시간 별 메인 상품 총 판매 액 및 총 판매 개수 집계 배치 처리</li>
+                        <li>Google Analytics4 주문 트래킹 개발 및 연동</li>
+                    </ul>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+
+            <div class="item">
+                <div class="work-place">
+                    <h3 class="place"><b>SKT EMF [Spring boot 기반 네트워크 장비 모니터링 시스템</b></h3>
+                    <i style="color:gray">바른개발연구소</i>
+                </div>
+                <hr>
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2020.06.01 ~ 2021.08.31</div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    <ul>
+                        <li>Spring 기반 Web Application 유지보수</li>
+                        <li>통계 120만 데이터 조회 후 테이블, 그래프 성능 개선 [15분 => 30초]</li>
+                    </ul>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+
+            <div class="item">
+                <div class="work-place">
+                    <h3 class="place"><b>LGU+ EMS 3.0 [Spring Web 기반 네트워크 장비 모니터링 시스템]</b></h3>
+                    <i style="color:gray">바른개발연구소</i>
+                </div>
+                <hr>
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2019.05.20 ~ 2021.08.31</div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    <ul>
+                        <li>Spring 기반 Web Application 유지보수</li>
+                        <li>전반적인 소스 리팩토링을 통한 성능개선 및 이슈 처리</li>
+                        <li>실시간 그래프 성능 개선</li>
+                    </ul>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+        </div><!--//timeline-->
+
+        <div class="pb-3 row">
+            <div class="col"><h2 style="color:#3c78d8">LICENSE</h2></div>
+        </div>
+        <br><br>
+        <div class="timeline">
+
+            <div class="item">
+                <div class="work-place">
+                </div>
+
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2018.08.17</div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    정보처리기사
+                    <br>
+                    <i style="color:gray">한국산업인력공단 (18202010751A)</i>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+            <div class="item">
+                <div class="work-place">
+                </div>
+
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2015.06.12</div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+
+                    워드프로세서1급
+                    <br>
+                    <i style="color:gray">대한상공회의소 (15-I9-014216)</i>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+
+            <div class="item">
+                <div class="work-place">
+                </div>
+
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2015.05.08</div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    컴퓨터활용능력2급
+                    <br>
+                    <i style="color:gray">대한상공회의소 (15-K9-034404)</i>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+        </div><!--//timeline-->
 
 
-		<script src="js/libs/bootstrap.min.js"></script>
+        <div class="pb-3 row">
+            <div class="col"><h2 style="color:#3c78d8">ARTICLE</h2></div>
+        </div>
+        <br><br>
+        <div class="timeline">
 
-		<script src='js/jquery.easing.1.3.min.js'></script>
-		<script src='js/jquery.scrollto.js'></script>
-		<script src="js/jquery.fittext.js"></script>
-		<script src='js/jquery.flexslider.min.js'></script>
-		<script src='js/jquery.masonry.js'></script>
-		<script src="js/waypoints.min.js"></script>
-		<script src="js/jquery.label_better.min.js"></script>
-		<script src="js/jquery.easypiechart.js"></script>
-		<script src="js/contact.js"></script>
-		<script src="js/meflat.js"></script>
+            <div class="item">
 
-	</body>
+                <div class="job-meta">
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    <ul>
+                        <li><a href="https://dev.gmarket.com/116" target="_blank"
+                               rel="noreferrer noopener">Redis Vs Mongo DB By Item View Count (이 상품 몇명이 보고
+                            있어요)</a></li>
+                        <li><a href="https://dev.gmarket.com/106" target="_blank" rel="noreferrer noopener">Gmarket
+                            Mobile Web Vip 악성 봇 대침투 사건</a></li>
+                        <li><a href="https://dev.gmarket.com/105" target="_blank" rel="noreferrer noopener">설계란
+                            고민의 연속이다 2편</a></li>
+                        <li><a href="https://dev.gmarket.com/104" target="_blank" rel="noreferrer noopener">설계란
+                            고민의 연속이다 1편</a></li>
+                        <li><a href="https://dev.gmarket.com/103" target="_blank" rel="noreferrer noopener">개발자를
+                            잠 못 들게 만드는 코드</a></li>
+                        <li><a href="https://dev.gmarket.com/97" target="_blank" rel="noreferrer noopener">Gmarket
+                            Mobile Web Vip 레거시 성능 개선기</a></li>
+                        <li><a href="https://dev.gmarket.com/46" target="_blank" rel="noreferrer noopener">지마켓
+                            대기열 시스템 파헤치기</a></li>
+                        <li><a href="https://dev.gmarket.com/39" target="_blank" rel="noreferrer noopener">KafkaItemReader
+                            적용기</a></li>
+
+                    </ul>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+        </div><!--//timeline-->
+
+
+        <div class="pb-3 row">
+            <div class="col"><h2 style="color:#3c78d8">EDUCATION</h2></div>
+        </div>
+        <br><br>
+        <div class="timeline">
+
+            <div class="item">
+                <div class="work-place">
+                </div>
+
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2025.05.19 ~ 2025.05.21</div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    JPA 기반의 어플리케이션 설계
+                    <br>
+                    <i style="color:gray">조영호 강사님</i>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+
+
+            <div class="item">
+                <div class="work-place">
+                </div>
+
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2021.06.01 ~ 2021.06.31</div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    자바 플레이그라운드 with TDD, 클린코드 2021
+                    <br>
+                    <i style="color:gray">NEXTSTEP</i>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+
+            <div class="item">
+                <div class="work-place">
+                </div>
+
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2018.08.01 ~ 2019.03.31</div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    비트교육센터
+                    <br>
+                    <i style="color:gray">응용SW엔지니어링(전자정부 프레임워크)양성과정</i>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+
+            <div class="item">
+                <div class="work-place">
+                </div>
+
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2015.03 ~ 2019.02</div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    서경대학교
+                    <br>
+                    <i style="color:gray">컴퓨터공학과 졸업</i>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+
+            <div class="item">
+                <div class="work-place">
+                </div>
+
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2015.03 ~ 2019.02</div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    경신고등학교
+                    <br>
+                    <i style="color:gray">문과 졸업</i>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+        </div><!--//timeline-->
+
+        <div class="pb-3 row">
+            <div class="col"><h2 style="color:#3c78d8">ETC</h2></div>
+        </div>
+        <br><br>
+        <div class="timeline">
+
+            <div class="item">
+                <div class="work-place">
+                </div>
+
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2017.09.21</div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    추계정보처리학술대회 논문 게재 및 구두 발표
+                    <br>
+                    (가상 현실 3D 오브젝트와의 상호작용을 위한 MCSVM 기반 손 제스처 인식)
+                    <br>
+                    <i style="color:gray">논문번호 KIPS_C2017B0284 (S6.인간과 컴퓨터 상호작용)</i>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+
+            <div class="item">
+                <div class="work-place">
+                </div>
+
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2017.09.21</div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    손 제스처 인식에 기반한 Virtual Block 게임 인터페이스
+                    <br>
+                    (Virtual Block Game Interface based on the Hand Gesture Rec
+                    ognition)
+                    <br>논문 게재
+                    <br>
+                    <i style="color:gray"> 한국게임학회 v.17 no.6,2017년, pp.113 120</i>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+
+            <div class="item">
+                <div class="work-place">
+                </div>
+
+                <div class="job-meta">
+                    <div class="time" style="font-size:21px;">2011.07 ~ 2013.03</div>
+                </div><!--//job-meta-->
+                <div class="job-desc">
+                    육군 병장 만기 전역
+                    <br>
+                </div><!--//job-desc-->
+            </div><!--//item-->
+
+        </div><!--//timeline-->
+
+    </div>
+
+
+</section>
+
+<!-- ==============================================
+FEATURED PROJECT
+=============================================== -->
+
+
+<!-- ==============================================
+ABOUT
+=============================================== -->
+
+<!-- ==============================================
+SKILLS
+=============================================== -->
+
+<!-- ==============================================
+PORTFOLIO
+=============================================== -->
+
+<!-- ==============================================
+DRIBBLE
+=============================================== -->
+
+<!-- ==============================================
+CONTACT
+=============================================== -->
+<section id="contact" class="dark-bg light-typo padding-top-bottom" style="background-color:black;">
+
+    <div class="container">
+
+        <header class="section-header text-center">
+
+            <h1 class="scrollimation scale-in in">Contact</h1>
+
+
+        </header>
+        <div class="contactall">
+            <div class="contactcon">
+                <div class="contactleft">
+                    <h1>
+                        Name
+                    </h1>
+                </div>
+                <div class="contactright">
+                    <h1>
+                        김윤제
+                    </h1>
+                </div>
+            </div>
+
+            <div class="contactcon">
+                <div class="contactleft">
+                    <h1>
+                        Mail
+                    </h1>
+                </div>
+                <div class="contactright">
+                    <h1>
+                        <a href="mailto:forteas2003@hanmail.net">forteas2003@hanmail.net</a>
+                    </h1>
+                </div>
+            </div>
+            <div class="contactcon">
+                <div class="contactleft">
+                    <h1>
+                        Address
+                    </h1>
+                </div>
+                <div class="contactright">
+                    <h1>
+                        서울시 성북구 정릉동
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</section>
+<footer id="main-footer" class="dark-bg light-typo" style="background-color:black;">
+
+    <div class="container">
+
+
+        <div class="row">
+
+            <div class="col-sm-6">
+
+            </div>
+
+            <div class="col-sm-6 text-right">
+                <p>©Copyright 2019 YJKIM </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+<!-- ==============================================
+FOOTER
+=============================================== -->
+
+
+<!-- ==============================================
+SCRIPTS
+=============================================== -->
+
+
+<script src="js/libs/bootstrap.min.js"></script>
+
+<script src='js/jquery.easing.1.3.min.js'></script>
+<script src='js/jquery.scrollto.js'></script>
+<script src="js/jquery.fittext.js"></script>
+<script src='js/jquery.flexslider.min.js'></script>
+<script src='js/jquery.masonry.js'></script>
+<script src="js/waypoints.min.js"></script>
+<script src="js/jquery.label_better.min.js"></script>
+<script src="js/jquery.easypiechart.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/meflat.js"></script>
+
+</body>
 
 </html>

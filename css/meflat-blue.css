@@ -8,6 +8,9 @@ body{
 	font-weight:300;
 	overflow-x:hidden;
 }
+li {
+font-weight: normal;
+}
 
 h1,
 h2,
