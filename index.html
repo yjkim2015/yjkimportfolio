@@ -868,6 +868,7 @@ SERVICES
                     <ul>
                         <li>품질 예방 대상 차종 등록시 중복 저장 발생으로 인해 동시성 처리를 위한 Redis 기반의 Redisson 분산 락을 적용 [AOP]</li>
                         <li>Aop &  Kafka pub / sub 통한 시스템 로그 적재</li>
+                        <li>Spring Data Jpa 기반 대용량 Batch => JdbcTemplate Bulk Insert 기반 Batch로 변경하여 성능 개선 및 OOM 처리</li>
                     </ul>
                 </div><!--//job-desc-->
             </div><!--//item-->
