@@ -287,17 +287,18 @@ HEADER
                     서비스 안정성과 성능 향상을 주도한 백엔드 전문가
                 </p>
 
-                    Java와 Spring Boot를 중심으로 안정적이고 확장성 있는 아키텍처를 설계해왔으며, Kotlin Spring Boot 프로젝트를 포함해 다양한 언어와 기술 스택을 실제 서비스에 적용한 경험 등 언어에 구애받지 않는 유연성을 갖추고 있습니다.
-                    <br></br>
-                    SI 회사와 서비스 기업 모두에서 근무하며 다양한 산업 도메인과 조직 문화를 경험했습니다.
-                    <br></br>
-                    지마켓에서는 상품 상세 페이지 도메인의 API 서버를 설계·개발하고, 대규모 프로젝트에서 메인 개발자로 참여했습니다.
-                    또한 안정성과 성능을 고려한 Rate Limitter를 직접 구현해 대규모 트래픽 환경에서의 시스템 안정성을 강화했습니다.
-                    <br></br>
-                    다양한 직군과 원활하게 커뮤니케이션하며 목표를 달성해왔습니다.
-                    팀 내에서는 기술 공유 스터디를 주도해 지식 확산과 역량 향상을 이끌었으며, 문서화를 통해 누구나 쉽게 이해하고 유지보수할 수 있는 개발 환경을 구축하는 것을 중요하게 생각합니다.
-                    <br></br>
-                    최신 기술 트렌드에 민감하게 반응하며 매일 학습하고 성장하기 위해 노력합니다. 더 나은 사용자 경험과 가치를 제공하기 위해 지식과 경험을 적극적으로 공유하며 발전하는 개발자입니다.
+                Java와 Spring Boot를 중심으로 안정적이고 확장성 있는 아키텍처를 설계해왔으며, Kotlin Spring Boot 프로젝트를 포함해 다양한 언어와 기술 스택을 실제 서비스에
+                적용한 경험 등 언어에 구애받지 않는 유연성을 갖추고 있습니다.
+                <br></br>
+                SI 회사와 서비스 기업 모두에서 근무하며 다양한 산업 도메인과 조직 문화를 경험했습니다.
+                <br></br>
+                지마켓에서는 상품 상세 페이지 도메인의 API 서버를 설계·개발하고, 대규모 프로젝트에서 메인 개발자로 참여했습니다.
+                또한 안정성과 성능을 고려한 Rate Limitter를 직접 구현해 대규모 트래픽 환경에서의 시스템 안정성을 강화했습니다.
+                <br></br>
+                다양한 직군과 원활하게 커뮤니케이션하며 목표를 달성해왔습니다.
+                팀 내에서는 기술 공유 스터디를 주도해 지식 확산과 역량 향상을 이끌었으며, 문서화를 통해 누구나 쉽게 이해하고 유지보수할 수 있는 개발 환경을 구축하는 것을 중요하게 생각합니다.
+                <br></br>
+                최신 기술 트렌드에 민감하게 반응하며 매일 학습하고 성장하기 위해 노력합니다. 더 나은 사용자 경험과 가치를 제공하기 위해 지식과 경험을 적극적으로 공유하며 발전하는 개발자입니다.
 
             </div>
 
@@ -385,7 +386,7 @@ SERVICES
                     <div class="time" style="font-size:21px;">2025.04.07 ~</div>
                     <div class=""><span
                             class="mr-1 badge badge-primary" style="background-color:#007bff;">재직 중</span>
-                        </div>
+                    </div>
                 </div><!--//job-meta-->
                 <hr>
                 <div class="job-desc">
@@ -534,10 +535,29 @@ SERVICES
                 </div><!--//job-meta-->
                 <hr>
                 <div class="job-desc">
+                    문제
                     <ul>
-                        <li>품질 예방 대상 차종 등록시 중복 저장 발생으로 인해 동시성 처리를 위한 Redis 기반의 Redisson 분산 락을 적용 [AOP]</li>
-                        <li>Aop &  Kafka pub / sub 통한 시스템 로그 적재</li>
-                        <li>Spring Data Jpa 기반 대용량 Batch => JdbcTemplate Bulk Insert 기반 Batch로 변경하여 성능 개선 및 OOM 처리</li>
+                        <li>품질 예방 대상 차종 등록 시 중복 저장 발생 → 분산 환경에서의 동시 요청 처리로 인한 Race Condition으로 데이터 무결성 깨짐</li>
+                        <li>대용량 Batch 처리 시 JPA saveAll 사용으로 개별 Insert 문이 건 단위로 생성되어 Flush/Commit 비용이 누적되고, 영속성 컨텍스트 메모리
+                            점유 증가로 OOM 발생
+                        </li>
+                        <li>운영 환경에서 다량의 시스템 로그 발생 시 처리 지연</li>
+                    </ul>
+                    <br></br>
+                    어려웠던 점과 극복 방안
+                    <ul>
+                        <li>분산 환경 동시성 제어: Redis 기반 Redisson 분산 락(AOP) 적용으로 서버 인스턴스 간 중복 저장 차단</li>
+                        <li>Batch 성능 개선: JPA saveAll → JDBC Template Bulk Insert 적용 → Flush/Commit 비용 절감, 메모리 누수 방지
+                        </li>
+                        <li>로그 처리 효율화: AOP 레벨에서 Kafka Pub/Sub로 로그 비동기 적재, I/O 병목 해소</li>
+                    </ul>
+                    <br></br>
+
+                    성과
+                    <ul>
+                        <li>분산 락을 통한 데이터 무결성 확보</li>
+                        <li>Bulk Insert 기반 Batch로 성능 (속도, 리소스) 향상</li>
+                        <li>Kafka 기반 로그 파이프라인으로 로그 처리 성능 및 장애 내성 확보</li>
                     </ul>
                 </div><!--//job-desc-->
             </div><!--//item-->
@@ -552,13 +572,26 @@ SERVICES
                     <div class="time" style="font-size:21px;">2024.01 ~ 2024.05</div>
                 </div><!--//job-meta-->
                 <div class="job-desc">
+                    문제
                     <ul>
-                        <li>대규모 트래픽으로 인한 API 서버 CPU Max (API 서버 로직 수행 지연)</li>
-                        <li>DB Spike로 DB 서버 부하로 인해 쿼리 수행 및 커넥션 반환 지연 (DB Connection Pool Max)</li>
-                        <li>로드밸런서 => API Server Health Check 시 응답 지연으로 인해 서버 Down 판정</li>
-                        <li>자체 Rate Limitter 개발 (IpAddress, Cookie 기반)</li>
+                        <li>데이터센터 장애로 트래픽 쏠림 발생 → API 서버 CPU Max, DB Connection Pool 고갈</li>
+                        <li>주기적 트래픽 폭증(4시간 간격)으로 서버 다운 판정</li>
+                        <li>단순 User-Agent 기반 필터링은 정상 사용자 차단 위험</li>
+                    </ul>
+                    <br></br>
+                    어려웠던 점과 극복방안
+                    <ul>
+                        <li>트래픽 분석: IP 단위 요청 빈도 집계(1~N초 단위)로 악성 봇 패턴 식별</li>
+                        <li>IP 기반 Rate Limiting: Redis String Increment로 요청 카운트 및 임계치 초과 시 X분간 차단</li>
+                        <li>정상 트래픽 보호: 화이트리스트 기반 예외 처리</li>
+                        <li>쿠키 기반 2차 필터링: Custom UUID 쿠키 발급 → 동일 쿠키 + 서로 다른 IP 조합 탐지</li>
+                        <li>시스템 전환: Spring Boot + Kotlin 기반 API로 재개발, Gmarket/Auction 상품 상세 서버에 연동</li>
+                    </ul>
+                    <br></br>
+                    성과
+                    <ul>
+                        <li>배포 이후 서버 다운 Zero, CPU/DB 부하 안정화</li>
                         <li><a href="https://dev.gmarket.com/106">Gmarket Mobile Web Vip 악성 봇 대침투 사건</a></li>
-
                     </ul>
                 </div><!--//job-desc-->
             </div><!--//item-->
@@ -574,9 +607,49 @@ SERVICES
                     <div class="time" style="font-size:21px;">2023.11 ~ 2025.03</div>
                 </div><!--//job-meta-->
                 <div class="job-desc">
+                    문제
                     <ul>
-                        <li>시스템 아키텍쳐 설계</li>
-                        <li>상품 상세 화면 성격에 맞춰 Spring 멀티 모듈 구조를 적용하여 Aggregator, Biz, Core, Extension, Admin 구성</li>
+                        <li>Mobile MWeb Backend API(.NET Framework)와 Mobile App Backend API(TypeScript)가 분리 운영 → 코드 중복,
+                            협업 비효율, 유지보수 비용 증가
+                        </li>
+                        <li>Stored Procedure 직접 호출 로직 → 리소스 사용량 급증, DB/비즈니스 로직 결합도 높음
+                        </li>
+                        <li>배포 시 JVM Lazy Loading과 JIT 컴파일 지연으로 Latency 증가</li>
+                        <li>Redis 캐시 조회 지연 시 에러 페이지로 전환되는 불안정성</li>
+                        <li>빅스마일데이 트래픽 대비 안정적인 TPS 확보 필요</li>
+                    </ul>
+                    <br></br>
+                    어려웠던 점과 극복 방안
+                    <ul>
+                        <li>아키텍처 통합: Spring Boot 3.4 기반 멀티 모듈 구조(Aggregator, Core, Biz, Extension, Admin, Data)로 통합 API
+                            설계
+                        </li>
+                        <li>SP 종속성 제거: DB 전용 API 서비스 구축, SP 호출 로직을 별도 모듈로 분리하여 비즈니스 로직과 데이터 조회 로직의 결합도 감소 → 원인 분석과 성능
+                            모니터링 용이
+                        </li>
+                        <li>Redis Pub/Sub 구현 → Admin 설정 변경 시 캐시 자동 갱신</li>
+                        <li>Warm-up 구현: Spring ApplicationListener와 k8s StartupProbe를 활용해 JIT 초기화 지연 해결</li>
+                        <li>
+                            CSRF 패턴 적용해 조회 모델과 저장 모델을 분리 →
+
+                            조회 모델은 Redis에서 조회하여 성능 최적화 →
+
+                            저장 모델은 Oracle과 MongoDB에 기록하여 영속성 보장
+                        </li>
+                        <li>이중 캐시 전략 (Global Cache + Local Cache) 도입</li>
+                        <li>성능 테스트(K6)
+
+                            점진적 부하 증가(Ramp-up) →  Stable TPS / Limit TPS 측정 →
+
+                            단일 Pod 및 다중 Pod 환경에서 트래픽 시뮬레이션 →
+
+                            목표 TPS: 빅스마일데이 대비 최대 2000TPS
+                        </li>
+
+                    </ul>
+                    <br></br>
+                    성과
+                    <ul>
                         <li>통합된 API 모델을 설계하여 데이터 일관성 유지, 변경 사항이 생겨도 앱의 배포를 최소화 하며,
                             다양한 클라이언트에서 동일한 로직을 재사용할 수 있는 기반을 마련
                             <br>
@@ -584,13 +657,12 @@ SERVICES
                             <br>
                             <a href="https://dev.gmarket.com/105">통합 플랫폼 API 모델 설계 2</a>
                         </li>
-                        <li> Legacy DB SP 별도 DB 서비스 분리 및 API 전환</li>
-                        <li> Warm up 구현을 통한 서비스 배포 시 마다 Latency 발생으로 인한 에러 처리</li>
-                        <li>Local Cache & Global Cache를 통한 성능 안정화</li>
-                        <li>Redis Pub/Sub 구현을 통한 Admin에서 설정된 페이지 정보 조회에 적용 된 로컬 캐시 무효화</li>
-                        <li>성능 테스트를 통한 시스템의 안정성과 성능 한계를 파악하여 운영 환경에서 최적의 리소스 할당 및 확장 전략을 수립 <br>
-                            (빅스마일데이 대비 목표 2000TPS 대응 가능성 확인.)
-                        </li>
+                        <li>멀티 모듈 구조 기반 통합 API → 데이터 일관성 및 코드 재사용성 확보</li>
+                        <li>SP 호출 서비스 분리로 유지보수성 및 문제 추적 용이</li>
+                        <li>Local + Global 캐시 계층 설계로 성능 안정화 및 장애 내성 확보</li>
+                        <li>CSRF 패턴 기반 모델 분리로 성능 최적화</li>
+                        <li>배포 시 Warm-up 자동화로 초기 Latency 제거</li>
+                        <li>성능 테스트 결과 ： 다중 Pod 환경 확장성 확인 → 목표 TPS 2000 대응 가능</li>
                     </ul>
                 </div><!--//job-desc-->
             </div><!--//item-->
@@ -605,9 +677,22 @@ SERVICES
                     <div class="time" style="font-size:21px;">2023.06 ~ 2023.07</div>
                 </div><!--//job-meta-->
                 <div class="job-desc">
+                    문제
                     <ul>
+                        <li>기존 레거시 API 서버 응답 속도 저하</li>
+                    </ul>
+                    <br></br>
+                    어려웠던 점과 극복방안
+                    <ul>
+                        <li>병목 구간을 분석하여 코드 최적화</li>
+                        <li>캐싱 적용 및 불필요한 로직 제거</li>
+                    </ul>
+                    <br></br>
+                    해결방안
+                    <ul>
+                        <li>API 응답 속도 개선</li>
+                        <li>모니터링 기반 성능 안정화</li>
                         <li><a href="https://dev.gmarket.com/97">Gmarket Mobile Web 상품 상세 레거시 성능 개선기</a></li>
-
                     </ul>
                 </div><!--//job-desc-->
             </div><!--//item-->
@@ -639,9 +724,23 @@ SERVICES
                     <div class="time" style="font-size:21px;">2020.06 ~ 2021.08</div>
                 </div><!--//job-meta-->
                 <div class="job-desc">
+                    문제
                     <ul>
-                        <li>Spring 기반 Web Application 유지보수</li>
-                        <li>통계 120만 데이터 조회 후 테이블, 그래프 성능 개선 [15분 => 30초]</li>
+                        <li>대용량 통계 데이터(약 120만건) 조회 시 테이블/그래프 렌더링 지연 (15분 소요)</li>
+                        <li>대용량 Excel 다운로드 성능 저하</li>
+                    </ul>
+                    <br></br>
+                    어려웠던 점과 극복 방안
+                    <ul>
+                        <li>서버에서 페이징 계산 처리, 화면에서는 필요 데이터만 요청</li>
+                        <li>서버 단에서 그래프 데이터 통합 가공, JS 중복 가공 제거</li>
+                        <li>불필요 로직 제거, 분할 압축 방식으로 Excel 다운로드 최적화</li>
+                    </ul>
+                    <br></br>
+                    성과
+                    <ul>
+                        <li>대용량 데이터 조회/그래프 렌더링 시간 대폭 단축 (15분 → 30초 수준)</li>
+                        <li>Excel 다운로드 성능 개선 및 사용자 경험 향상</li>
                     </ul>
                 </div><!--//job-desc-->
             </div><!--//item-->
@@ -656,10 +755,25 @@ SERVICES
                     <div class="time" style="font-size:21px;">2019.05 ~ 2021.08</div>
                 </div><!--//job-meta-->
                 <div class="job-desc">
+                    문제
                     <ul>
-                        <li>Spring 기반 Web Application 유지보수</li>
-                        <li>전반적인 소스 리팩토링을 통한 성능개선 및 이슈 처리</li>
-                        <li>실시간 그래프 성능 개선</li>
+                        <li>실시간 그래프 초기 렌더링 지연 및 버벅임</li>
+                        <li>DashBoard 테이블, 그래프 성능 저하</li>
+                        <li>웹소켓을 통한 대량 알람 처리 중 서버 누락 및 화면 지연 발생</li>
+                    </ul>
+                    <br></br>
+                    어려웠던 점과 극복방안
+                    <ul>
+                        <li>서버 단에서 데이터 가공을 통합, 화면단에서는 최초 그래프 객체 생성 후 데이터만 변경</li>
+                        <li>DashBoard 테이블/그래프 객체도 최초 생성 후 데이터만 교체하도록 변경</li>
+                        <li>웹소켓 알람 큐 딜레이 조정 및 객체 재사용 → 데이터 누락 방지, 성능 개선</li>
+                    </ul>
+                    <br></br>
+                    성과
+                    <ul>
+                        <li>실시간 그래프 초기 렌더링 시간 단축 및 버벅임 제거</li>
+                        <li>DashBoard 테이블/그래프 성능 개선</li>
+                        <li>웹소켓 알람 처리 안정성 향상</li>
                     </ul>
                 </div><!--//job-desc-->
             </div><!--//item-->
