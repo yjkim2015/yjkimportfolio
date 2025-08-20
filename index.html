@@ -547,7 +547,7 @@ SERVICES
                     어려웠던 점과 극복 방안
                     <ul>
                         <li>분산 환경 동시성 제어: Redis 기반 Redisson 분산 락(AOP) 적용으로 서버 인스턴스 간 중복 저장 차단</li>
-                        <li>Batch 성능 개선: JPA saveAll → JDBC Template Bulk Insert 적용 → Flush/Commit 비용 절감, 메모리 누수 방지
+                        <li>Batch 성능 개선: 부모 pk를 찾기 위한 UUID 컬럼 추가, JPA saveAll → JDBC Template Bulk Insert 적용 → Flush/Commit 비용 절감, 메모리 누수 방지
                         </li>
                         <li>로그 처리 효율화: AOP 레벨에서 Kafka Pub/Sub로 로그 비동기 적재, I/O 병목 해소</li>
                     </ul>
@@ -652,10 +652,6 @@ SERVICES
                     <ul>
                         <li>통합된 API 모델을 설계하여 데이터 일관성 유지, 변경 사항이 생겨도 앱의 배포를 최소화 하며,
                             다양한 클라이언트에서 동일한 로직을 재사용할 수 있는 기반을 마련
-                            <br>
-                            <a href="https://dev.gmarket.com/104">통합 플랫폼 API 모델 설계 1</a>
-                            <br>
-                            <a href="https://dev.gmarket.com/105">통합 플랫폼 API 모델 설계 2</a>
                         </li>
                         <li>SP 호출 서비스 분리로 유지보수성 및 문제 추적 용이</li>
                         <li>Local + Global 캐시 계층 설계로 성능 안정화 및 장애 내성 확보</li>
@@ -840,24 +836,13 @@ SERVICES
                 </div><!--//job-meta-->
                 <div class="job-desc">
                     <ul>
-                        <li><a href="https://dev.gmarket.com/116" target="_blank"
-                               rel="noreferrer noopener">Redis Vs Mongo DB By Item View Count (이 상품 몇명이 보고
-                            있어요)</a></li>
+
                         <li><a href="https://dev.gmarket.com/106" target="_blank" rel="noreferrer noopener">Gmarket
                             Mobile Web Vip 악성 봇 대침투 사건</a></li>
-                        <li><a href="https://dev.gmarket.com/105" target="_blank" rel="noreferrer noopener">설계란
-                            고민의 연속이다 2편</a></li>
-                        <li><a href="https://dev.gmarket.com/104" target="_blank" rel="noreferrer noopener">설계란
-                            고민의 연속이다 1편</a></li>
-                        <li><a href="https://dev.gmarket.com/103" target="_blank" rel="noreferrer noopener">개발자를
-                            잠 못 들게 만드는 코드</a></li>
                         <li><a href="https://dev.gmarket.com/97" target="_blank" rel="noreferrer noopener">Gmarket
                             Mobile Web Vip 레거시 성능 개선기</a></li>
                         <li><a href="https://dev.gmarket.com/46" target="_blank" rel="noreferrer noopener">지마켓
                             대기열 시스템 파헤치기</a></li>
-                        <li><a href="https://dev.gmarket.com/39" target="_blank" rel="noreferrer noopener">KafkaItemReader
-                            적용기</a></li>
-
                     </ul>
                 </div><!--//job-desc-->
             </div><!--//item-->
