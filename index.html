@@ -537,26 +537,40 @@ SERVICES
                 <div class="job-desc">
                     문제
                     <ul>
-                        <li>품질 예방 대상 차종 등록 시 중복 저장 발생 → 분산 환경에서의 동시 요청 처리로 인한 Race Condition으로 데이터 무결성 깨짐</li>
-                        <li>대용량 Batch 처리 시 JPA saveAll 사용으로 개별 Insert 문이 건 단위로 생성되어 Flush/Commit 비용이 누적되고, 영속성 컨텍스트 메모리
-                            점유 증가로 OOM 발생
+                        <li>품질 예방 대상 차종 등록 시 중복 저장 발생 <br></br>→ 분산 환경에서의 동시 요청 처리로 인한 Race Condition으로 데이터 무결성 깨짐</li>
+                        <li>대용량 Batch 처리 시 JPA saveAll 사용으로 영속성 컨텍스트에 엔티티가 누적되고 flush/clear 부재로 메모리 점유 증가 <br></br> → OOM 발생
                         </li>
-                        <li>운영 환경에서 다량의 시스템 로그 발생 시 처리 지연 및 잠재적 성능 부담 가능성</li>
+                        <li>대용량 Batch 처리 시 N+1 이슈로 쿼리 횟수 증가 <br></br>→ 성능 저하 <br></br> →
+                            대량 데이터 적재로 영속성 컨텍스트에 객체가 계속 쌓여 GC 회수 불가 → 메모리 점유율 증가 → OOM 발생</li>
+                        <li>품질 예방 대상 차종 등록/수정 시 처리 지연 (최대 10분 이상)</li>
+                        <li>운영 환경에서 대량 로그 발생 시 동기 I/O로 인해 처리 지연 및 잠재적 성능 부담</li>
                     </ul>
                     <br></br>
                     어려웠던 점과 극복 방안
                     <ul>
-                        <li>분산 환경 동시성 제어: Redis 기반 Redisson 분산 락(AOP) 적용으로 서버 인스턴스 간 중복 저장 차단</li>
-                        <li>Batch 성능 개선: 부모 pk를 찾기 위한 UUID 컬럼 추가, JPA saveAll → JDBC Template Bulk Insert 적용 → Flush/Commit 비용 절감, 메모리 누수 방지
+                        <li>분산 환경 동시성 제어 <br></br>→ Redis 기반 Redisson 분산 락(AOP) 적용으로 서버 인스턴스 간 중복 저장 차단</li>
+                        <li>Batch 성능 개선 <br></br> →  부모 pk를 찾기 위한 UUID 컬럼 추가, JPA saveAll → JDBC Template Bulk Insert 적용 <br></br> →
+                            Flush/Commit 비용 절감, 메모리 누수 방지
                         </li>
-                        <li>로그 처리 효율화: AOP 레벨에서 Kafka Pub/Sub로 로그 비동기 적재, I/O 병목 해소</li>
+                        <li>
+                            Batch 성능 개선 <br></br> →  Log, visualVm을 통한 Heap Dump 분석으로 N+1 Query 문제점 파악 <br></br> → Fetch Batch Size 적용 →  연관 객체 조회
+                            쿼리 수 감소, 메모리 점유율 안정화 →  OOM 방지
+                        </li>
+                        <li>
+                            차종 등록 / 수정 시 성능 개선 <br></br> →
+                            Jpa Save All → JDBC Template Bulk Insert 적용 처리 시간 단축 <br></br> →
+                            N + 1 Query 문제 해결로 성능 개선 <br></br> →
+                            트랜잭션 내 외부 API 호출 →  List 형태의 Param을 SubList하여 병렬 호출로 성능 개선 →  외부 API의 응답 지연에 따른 트랜잭션 지연 →  추후 비동기 큐 도입 제안
+                        </li>
+                        <li>로그 처리 효율화 <br></br> →  AOP 레벨에서 Kafka Pub/Sub로 로그 비동기 적재, I/O 병목 해소</li>
                     </ul>
                     <br></br>
 
                     성과
                     <ul>
                         <li>분산 락을 통한 데이터 무결성 확보</li>
-                        <li>Bulk Insert 기반 Batch로 성능 (속도, 리소스) 향상</li>
+                        <li>Bulk Insert 기반 Batch + Fetch Batch Size 전략으로 N+1 이슈 처리 →  성능 (속도, 리소스) 향상 (약 28분 → 7분 이내)</li>
+                        <li>품질 예방 대상 차종 등록 / 수정 시 성능 개선 (약 10분 →  1분 이내)</li>
                         <li>Kafka 기반 로그 파이프라인으로 로그 처리 성능 및 장애 내성 확보</li>
                     </ul>
                 </div><!--//job-desc-->
@@ -639,7 +653,7 @@ SERVICES
                         <li>이중 캐시 전략 (Global Cache + Local Cache) 도입</li>
                         <li>성능 테스트(K6)
 
-                            점진적 부하 증가(Ramp-up) →  Stable TPS / Limit TPS 측정 →
+                            점진적 부하 증가(Ramp-up) → Stable TPS / Limit TPS 측정 →
 
                             단일 Pod 및 다중 Pod 환경에서 트래픽 시뮬레이션 →
 
