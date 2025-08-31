@@ -289,15 +289,15 @@ HEADER
 
                 Java와 Spring Boot를 중심으로 안정적이고 확장성 있는 아키텍처를 설계해왔으며, Kotlin Spring Boot 프로젝트를 포함해 다양한 언어와 기술 스택을 실제 서비스에
                 적용한 경험 등 언어에 구애받지 않는 유연성을 갖추고 있습니다.
-                <br></br>
+                <br>
                 SI 회사와 서비스 기업 모두에서 근무하며 다양한 산업 도메인과 조직 문화를 경험했습니다.
-                <br></br>
+                <br>
                 지마켓에서는 상품 상세 페이지 도메인의 API 서버를 설계·개발하고, 대규모 프로젝트에서 메인 개발자로 참여했습니다.
                 또한 안정성과 성능을 고려한 Rate Limitter를 직접 구현해 대규모 트래픽 환경에서의 시스템 안정성을 강화했습니다.
-                <br></br>
+                <br>
                 다양한 직군과 원활하게 커뮤니케이션하며 목표를 달성해왔습니다.
                 팀 내에서는 기술 공유 스터디를 주도해 지식 확산과 역량 향상을 이끌었으며, 문서화를 통해 누구나 쉽게 이해하고 유지보수할 수 있는 개발 환경을 구축하는 것을 중요하게 생각합니다.
-                <br></br>
+                <br>
                 최신 기술 트렌드에 민감하게 반응하며 매일 학습하고 성장하기 위해 노력합니다. 더 나은 사용자 경험과 가치를 제공하기 위해 지식과 경험을 적극적으로 공유하며 발전하는 개발자입니다.
 
             </div>
@@ -537,40 +537,49 @@ SERVICES
                 <div class="job-desc">
                     문제
                     <ul>
-                        <li>품질 예방 대상 차종 등록 시 중복 저장 발생 <br></br>→ 분산 환경에서의 동시 요청 처리로 인한 Race Condition으로 데이터 무결성 깨짐</li>
-                        <li>대용량 Batch 처리 시 JPA saveAll 사용으로 영속성 컨텍스트에 엔티티가 누적되고 flush/clear 부재로 메모리 점유 증가 <br></br> → OOM 발생
+                        <li>품질 예방 대상 차종 등록 시 중복 저장 발생 <br> - 분산 환경에서의 동시 요청 처리로 인한 Race Condition으로 데이터 무결성 깨짐</li>
+                        <li>대용량 Batch 처리 시 JPA saveAll 사용으로 영속성 컨텍스트에 엔티티 누적 및 flush/clear 부재
+                            <br> - 메모리 점유율 증가 → OOM 발생
                         </li>
-                        <li>대용량 Batch 처리 시 N+1 이슈로 쿼리 횟수 증가 <br></br>→ 성능 저하 <br></br> →
-                            대량 데이터 적재로 영속성 컨텍스트에 객체가 계속 쌓여 GC 회수 불가 → 메모리 점유율 증가 → OOM 발생</li>
+                        <li>대용량 Batch 처리 시 N+1 이슈 <br>
+                            - 쿼리 횟수 증가로 인한 성능 저하 <br>
+                            - 대량 데이터 적재로 영속성 컨텍스트에 객체가 계속 쌓여 GC 회수 불가 → 메모리 점유율 증가 → OOM 발생
+                        </li>
                         <li>품질 예방 대상 차종 등록/수정 시 처리 지연 (최대 10분 이상)</li>
                         <li>운영 환경에서 대량 로그 발생 시 동기 I/O로 인해 처리 지연 및 잠재적 성능 부담</li>
                     </ul>
-                    <br></br>
+                    <br>
                     어려웠던 점과 극복 방안
                     <ul>
-                        <li>분산 환경 동시성 제어 <br></br>→ Redis 기반 Redisson 분산 락(AOP) 적용으로 서버 인스턴스 간 중복 저장 차단</li>
-                        <li>Batch 성능 개선 <br></br> →  부모 pk를 찾기 위한 UUID 컬럼 추가, JPA saveAll → JDBC Template Bulk Insert 적용 <br></br> →
-                            Flush/Commit 비용 절감, 메모리 누수 방지
+                        <li>분산 환경 동시성 제어 <br>
+                            - Redis 기반 Redisson 분산 락(AOP) 적용으로 서버 인스턴스 간 중복 저장 차단
+                        </li>
+                        <li>Batch 성능 개선 <br> - 부모 pk를 찾기 위한 UUID 컬럼 추가, JPA saveAll → JDBC Template Bulk Insert 적용 ->
+                            메모리 누수 방지
+
+                            <br> - Log, visualVm을 통한 Heap Dump 분석으로 N+1 Query 문제점 파악 → Fetch Batch Size 적용
+                            → 연관 객체 조회
+                            쿼리 수 감소, 메모리 점유율 안정화 → OOM 방지
                         </li>
                         <li>
-                            Batch 성능 개선 <br></br> →  Log, visualVm을 통한 Heap Dump 분석으로 N+1 Query 문제점 파악 <br></br> → Fetch Batch Size 적용 →  연관 객체 조회
-                            쿼리 수 감소, 메모리 점유율 안정화 →  OOM 방지
+                            차종 등록 / 수정 시 성능 개선 <br>
+                            - Jpa Save All → JDBC Template Bulk Insert 적용 처리 시간 단축 <br>
+                            - N + 1 Query 문제 해결로 성능 개선 <br>
+                            - 트랜잭션 내 외부 API 호출 → List 형태의 Param을 SubList하여 병렬 호출로 성능 개선 → 외부 API의 응답 지연에 따른 트랜잭션 지연 → 추후
+                            비동기 큐 도입 제안
                         </li>
-                        <li>
-                            차종 등록 / 수정 시 성능 개선 <br></br> →
-                            Jpa Save All → JDBC Template Bulk Insert 적용 처리 시간 단축 <br></br> →
-                            N + 1 Query 문제 해결로 성능 개선 <br></br> →
-                            트랜잭션 내 외부 API 호출 →  List 형태의 Param을 SubList하여 병렬 호출로 성능 개선 →  외부 API의 응답 지연에 따른 트랜잭션 지연 →  추후 비동기 큐 도입 제안
+                        <li>로그 처리 효율화 <br>
+                            - AOP 레벨에서 Kafka Pub/Sub로 로그 비동기 적재, I/O 병목 해소
                         </li>
-                        <li>로그 처리 효율화 <br></br> →  AOP 레벨에서 Kafka Pub/Sub로 로그 비동기 적재, I/O 병목 해소</li>
                     </ul>
-                    <br></br>
+                    <br>
 
                     성과
                     <ul>
                         <li>분산 락을 통한 데이터 무결성 확보</li>
-                        <li>Bulk Insert 기반 Batch + Fetch Batch Size 전략으로 N+1 이슈 처리 →  성능 (속도, 리소스) 향상 (약 28분 → 7분 이내)</li>
-                        <li>품질 예방 대상 차종 등록 / 수정 시 성능 개선 (약 10분 →  1분 이내)</li>
+                        <li>Bulk Insert 기반 Batch + Fetch Batch Size 전략으로 N+1 이슈 처리 → 성능 (속도, 리소스) 향상 (약 28분 → 7분 이내)
+                        </li>
+                        <li>품질 예방 대상 차종 등록 / 수정 시 성능 개선 (약 10분 → 1분 이내)</li>
                         <li>Kafka 기반 로그 파이프라인으로 로그 처리 성능 및 장애 내성 확보</li>
                     </ul>
                 </div><!--//job-desc-->
@@ -592,16 +601,26 @@ SERVICES
                         <li>주기적 트래픽 폭증(4시간 간격)으로 서버 다운 판정</li>
                         <li>단순 User-Agent 기반 필터링은 정상 사용자 차단 위험</li>
                     </ul>
-                    <br></br>
+                    <br>
                     어려웠던 점과 극복방안
                     <ul>
-                        <li>트래픽 분석: IP 단위 요청 빈도 집계(1~N초 단위)로 악성 봇 패턴 식별</li>
-                        <li>IP 기반 Rate Limiting: Redis String Increment로 요청 카운트 및 임계치 초과 시 X분간 차단</li>
-                        <li>정상 트래픽 보호: 화이트리스트 기반 예외 처리</li>
-                        <li>쿠키 기반 2차 필터링: Custom UUID 쿠키 발급 → 동일 쿠키 + 서로 다른 IP 조합 탐지</li>
-                        <li>시스템 전환: Spring Boot + Kotlin 기반 API로 재개발, Gmarket/Auction 상품 상세 서버에 연동</li>
+                        <li>트래픽 분석
+                            <br> - IP 단위 요청 빈도 집계(1~N초 단위)로 악성 봇 패턴 식별
+                        </li>
+                        <li>IP 기반 Rate Limiting
+                            <br> - Redis String Increment로 요청 카운트 및 임계치 초과 시 X분간 차단
+                        </li>
+                        <li>정상 트래픽 보호
+                            <br> - 화이트리스트 기반 예외 처리
+                        </li>
+                        <li>쿠키 기반 2차 필터링
+                            <br> - Custom UUID 쿠키 발급 → 동일 쿠키 + 서로 다른 IP 조합 탐지
+                        </li>
+                        <li>시스템 전환
+                            <br> - Spring Boot + Kotlin 기반 API로 재개발, Gmarket/Auction 상품 상세 서버에 연동
+                        </li>
                     </ul>
-                    <br></br>
+                    <br>
                     성과
                     <ul>
                         <li>배포 이후 서버 다운 Zero, CPU/DB 부하 안정화</li>
@@ -632,36 +651,39 @@ SERVICES
                         <li>Redis 캐시 조회 지연 시 에러 페이지로 전환되는 불안정성</li>
                         <li>빅스마일데이 트래픽 대비 안정적인 TPS 확보 필요</li>
                     </ul>
-                    <br></br>
+                    <br>
                     어려웠던 점과 극복 방안
                     <ul>
-                        <li>아키텍처 통합: Spring Boot 3.4 기반 멀티 모듈 구조(Aggregator, Core, Biz, Extension, Admin, Data)로 통합 API
-                            설계
+                        <li>아키텍처 통합 <br>
+                            - Spring Boot Java & Kotlin 기반 웹&앱 통합 API 설계
                         </li>
-                        <li>SP 종속성 제거: DB 전용 API 서비스 구축, SP 호출 로직을 별도 모듈로 분리하여 비즈니스 로직과 데이터 조회 로직의 결합도 감소 → 원인 분석과 성능
+                        <li>SP 종속성 제거 <br>
+                            - DB 전용 API 서비스 구축, SP 호출 로직을 별도 모듈로 분리하여 비즈니스 로직과 데이터 조회 로직의 결합도 감소 → 원인 분석과 성능
                             모니터링 용이
                         </li>
-                        <li>Redis Pub/Sub 구현 → Admin 설정 변경 시 캐시 자동 갱신</li>
-                        <li>Warm-up 구현: Spring ApplicationListener와 k8s StartupProbe를 활용해 JIT 초기화 지연 해결</li>
+                        <li>Redis Pub/Sub 구현 <br>
+                            - Admin 설정 변경 시 캐시 자동 갱신</li>
+                        <li>Warm-up 구현 <br>
+                            - Spring ApplicationListener와 k8s StartupProbe를 활용해 JIT 초기화 지연 해결</li>
                         <li>
-                            CQRF 패턴 적용해 조회 모델과 저장 모델을 분리 →
+                            CQRS 패턴 적용해 조회 모델과 저장 모델을 분리 <br>
 
-                            조회 모델은 Redis에서 조회하여 성능 최적화 →
+                            - 조회 모델은 Redis에서 조회하여 성능 최적화 <br>
 
-                            저장 모델은 Oracle과 MongoDB에 기록하여 영속성 보장
+                            - 저장 모델은 Oracle과 MongoDB에 기록하여 영속성 보장
                         </li>
                         <li>이중 캐시 전략 (Global Cache + Local Cache) 도입</li>
-                        <li>성능 테스트(K6)
+                        <li>성능 테스트(K6) <br>
 
-                            점진적 부하 증가(Ramp-up) → Stable TPS / Limit TPS 측정 →
+                            - 점진적 부하 증가(Ramp-up) → Stable TPS / Limit TPS 측정 <br>
 
-                            단일 Pod 및 다중 Pod 환경에서 트래픽 시뮬레이션 →
+                            - 단일 Pod 및 다중 Pod 환경에서 트래픽 시뮬레이션  <br>
 
-                            목표 TPS: 빅스마일데이 대비 최대 2000TPS
+                            - 목표 TPS: 빅스마일데이 대비 최대 2000TPS
                         </li>
 
                     </ul>
-                    <br></br>
+                    <br>
                     성과
                     <ul>
                         <li>통합된 API 모델을 설계하여 데이터 일관성 유지, 변경 사항이 생겨도 앱의 배포를 최소화 하며,
@@ -669,7 +691,7 @@ SERVICES
                         </li>
                         <li>SP 호출 서비스 분리로 유지보수성 및 문제 추적 용이</li>
                         <li>Local + Global 캐시 계층 설계로 성능 안정화 및 장애 내성 확보</li>
-                        <li>CSRF 패턴 기반 모델 분리로 성능 최적화</li>
+                        <li>CQRS 패턴 기반 모델 분리로 성능 최적화</li>
                         <li>배포 시 Warm-up 자동화로 초기 Latency 제거</li>
                         <li>성능 테스트 결과 ： 다중 Pod 환경 확장성 확인 → 목표 TPS 2000 대응 가능</li>
                     </ul>
@@ -690,13 +712,13 @@ SERVICES
                     <ul>
                         <li>기존 레거시 API 서버 응답 속도 저하</li>
                     </ul>
-                    <br></br>
+                    <br>
                     어려웠던 점과 극복방안
                     <ul>
                         <li>병목 구간을 분석하여 코드 최적화</li>
                         <li>캐싱 적용 및 불필요한 로직 제거</li>
                     </ul>
-                    <br></br>
+                    <br>
                     성과
                     <ul>
                         <li>API 응답 속도 개선</li>
@@ -738,14 +760,14 @@ SERVICES
                         <li>대용량 통계 데이터(약 120만건) 조회 시 테이블/그래프 렌더링 지연 (15분 소요)</li>
                         <li>대용량 Excel 다운로드 성능 저하</li>
                     </ul>
-                    <br></br>
+                    <br>
                     어려웠던 점과 극복 방안
                     <ul>
                         <li>서버에서 페이징 계산 처리, 화면에서는 필요 데이터만 요청</li>
                         <li>서버 단에서 그래프 데이터 통합 가공, JS 중복 가공 제거</li>
                         <li>불필요 로직 제거, 분할 압축 방식으로 Excel 다운로드 최적화</li>
                     </ul>
-                    <br></br>
+                    <br>
                     성과
                     <ul>
                         <li>대용량 데이터 조회/그래프 렌더링 시간 대폭 단축 (15분 → 30초 수준)</li>
@@ -770,14 +792,14 @@ SERVICES
                         <li>DashBoard 테이블, 그래프 성능 저하</li>
                         <li>웹소켓을 통한 대량 알람 처리 중 서버 누락 및 화면 지연 발생</li>
                     </ul>
-                    <br></br>
+                    <br>
                     어려웠던 점과 극복방안
                     <ul>
                         <li>서버 단에서 데이터 가공을 통합, 화면단에서는 최초 그래프 객체 생성 후 데이터만 변경</li>
                         <li>DashBoard 테이블/그래프 객체도 최초 생성 후 데이터만 교체하도록 변경</li>
                         <li>웹소켓 알람 큐 딜레이 조정 및 객체 재사용 → 데이터 누락 방지, 성능 개선</li>
                     </ul>
-                    <br></br>
+                    <br>
                     성과
                     <ul>
                         <li>실시간 그래프 초기 렌더링 시간 단축 및 버벅임 제거</li>
