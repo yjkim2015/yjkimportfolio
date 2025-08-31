@@ -554,10 +554,11 @@ SERVICES
                         <li>분산 환경 동시성 제어 <br>
                             - Redis 기반 Redisson 분산 락(AOP) 적용으로 서버 인스턴스 간 중복 저장 차단
                         </li>
-                        <li>Batch 성능 개선 <br> - 부모 pk를 찾기 위한 UUID 컬럼 추가, JPA saveAll → JDBC Template Bulk Insert 적용 ->
-                            메모리 누수 방지
+                        <li>Batch 성능 개선 <br> - Application RunTime 중 부모 pk를 찾기 위한 UUID 컬럼 추가, JPA saveAll에서 JDBC
+                            Template Bulk Insert 변환
+                            <br>  → 영속성 컨텍스트 거대화 방지 → 메모리 점유율 안정화 → OOM 방지
 
-                            <br> - Log, visualVm을 통한 Heap Dump 분석으로 N+1 Query 문제점 파악 → Fetch Batch Size 적용
+                            <br> - Log, visualVm을 통한 Heap Dump 분석으로 N+1 Query 문제점 파악 <br>→ Fetch Batch Size 적용
                             → 연관 객체 조회
                             쿼리 수 감소, 메모리 점유율 안정화 → OOM 방지
                         </li>
@@ -662,9 +663,11 @@ SERVICES
                             모니터링 용이
                         </li>
                         <li>Redis Pub/Sub 구현 <br>
-                            - Admin 설정 변경 시 캐시 자동 갱신</li>
+                            - Admin 설정 변경 시 캐시 자동 갱신
+                        </li>
                         <li>Warm-up 구현 <br>
-                            - Spring ApplicationListener와 k8s StartupProbe를 활용해 JIT 초기화 지연 해결</li>
+                            - Spring ApplicationListener와 k8s StartupProbe를 활용해 JIT 초기화 지연 해결
+                        </li>
                         <li>
                             CQRS 패턴 적용해 조회 모델과 저장 모델을 분리 <br>
 
@@ -677,7 +680,7 @@ SERVICES
 
                             - 점진적 부하 증가(Ramp-up) → Stable TPS / Limit TPS 측정 <br>
 
-                            - 단일 Pod 및 다중 Pod 환경에서 트래픽 시뮬레이션  <br>
+                            - 단일 Pod 및 다중 Pod 환경에서 트래픽 시뮬레이션 <br>
 
                             - 목표 TPS: 빅스마일데이 대비 최대 2000TPS
                         </li>
