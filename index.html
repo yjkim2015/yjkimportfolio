@@ -156,6 +156,28 @@
             margin-bottom:10px;
             font-size:15px;
         }
+        .mt-5, .my-5 {
+            margin-top: 3rem !important;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+        .col {
+            flex-basis: 0;
+            flex-grow: 1;
+            max-width: 100%;
+        }
+        .pb-3, .py-3 {
+            padding-bottom: 1rem !important;
+        }
+        .text-md-right {
+            text-align: right !important;
+        }
+}
+
     </style>
     <script>
         $(function(){
@@ -306,62 +328,150 @@ HEADER
     </div>
 
 </section>
-<section id="portfolio" class="gray-bg padding-top-bottom">
-    <!-- ==============================================
-    PROJECT PREVIEW MODAL (Do not alter this markup)
-    =============================================== -->
-    <div id="project-modal" class="modal fade">
-
-        <div class="modal-dialog">
-
-            <div class="modal-content">
-
-                <div class="modal-header">
-
-                    <div class="container">
-
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
-                        <h1 id="hdr-title" class="text-center"></h1>
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2">
-                                <div class="image-wrapper">
-                                    <img class="img-responsive" src="assets/chrome.png" alt="">
-                                    <div class="loader"></div>
-                                    <div class="screen"></div>
+<div class="container" style="width:100%; max-width:1140px;">
+    <div class="mt-5">
+        <div class="row">
+            <div class="col">
+                <div class="pb-3 row">
+                    <div class="col"><h2><span style="color:#3c78d8">SKILL</span></h2></div>
+                </div>
+                <div>
+                    <div class="row">
+                        <div class="text-md-right col-sm-12 col-md-3"><h4 style="color:gray">Languages</h4></div>
+                        <div class="col-sm-12 col-md-9">
+                            <div class="mt-2 mt-md-0 row">
+                                <div class="col-12 col-md-4">
+                                    <ul>
+                                        <li>Java</li>
+                                        <li>Kotlin</li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <ul>
+                                        <li>Javascript</li>
+                                        <li>C#</li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <ul></ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div id="project-sidebar" class="col-md-3">
-                                <h2 id="sdbr-title"></h2>
-                                <p id="sdbr-category"></p>
-                                <p id="sdbr-date"></p>
-                                <p id="sdbr-client"></p>
-                                <p id="sdbr-link"><a href="#link" target="_blank"></a></p>
-                                <p id="sdbr-git"><a href="#link" target="_blank"></a></p>
-                                <p id="sdbr-descr"></p>
-                            </div>
-                            <div id="project-content" class="col-md-8 col-md-offset-1">
+                <div>
+                    <hr>
+                    <div class="row">
+                        <div class="text-md-right col-sm-12 col-md-3"><h4 style="color:gray">Fameworks &amp;
+                            Libraries</h4></div>
+                        <div class="col-sm-12 col-md-9">
+                            <div class="mt-2 mt-md-0 row">
+                                <div class="col-12 col-md-4">
+                                    <ul>
+                                        <li>Spring Boot</li>
+                                        <li>JPA</li>
+                                        <li>Coroutine</li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <ul>
+                                        <li>Next.js</li>
+                                        <li>Kafka</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-
                     </div>
-                </div><!-- End modal-body -->
+                </div>
+                <div>
+                    <hr>
+                    <div class="row">
+                        <div class="text-md-right col-sm-12 col-md-3"><h4 style="color:gray">Infrastructure &amp;
+                            Databases</h4></div>
+                        <div class="col-sm-12 col-md-9">
+                            <div class="mt-2 mt-md-0 row">
+                                <div class="col-12 col-md-4">
+                                    <ul>
+                                        <li>RDBMS</li>
+                                        <li>Redis</li>
+                                        <li>MongoDB</li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <ul>
+                                        <li>Linux</li>
+                                        <li>AWS</li>
+                                        <li>Kubernetes</li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <ul>
+                                        <li>Docker</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <hr>
+                    <div class="row">
+                        <div class="text-md-right col-sm-12 col-md-3"><h4 style="color:gray">Tools</h4></div>
+                        <div class="col-sm-12 col-md-9">
+                            <div class="mt-2 mt-md-0 row">
+                                <div class="col-12 col-md-4">
+                                    <ul>
+                                        <li>Jenkins</li>
+                                        <li>Prometheus</li>
+                                        <li>Grafana</li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <ul>
+                                        <li>Datadog</li>
+                                        <li>OpenSearch</li>
+                                        <li>Openshift</li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <ul>
+                                        <li>Rancher</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <hr>
+                    <div class="row">
+                        <div class="text-md-right col-sm-12 col-md-3"><h4 style="color:gray">Misc</h4></div>
+                        <div class="col-sm-12 col-md-9">
+                            <div class="mt-2 mt-md-0 row">
+                                <div class="col-12 col-md-4">
+                                    <ul>
+                                        <li>DevOps</li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <ul>
+                                        <li>Medium</li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <ul>
+                                        <li>Geeknews</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-            </div><!-- End modal-content -->
-
-        </div><!-- End modal-dialog -->
-
-    </div><!-- End modal -->
-
-</section>
 <!-- ==============================================
 SERVICES
 =============================================== -->
@@ -556,7 +666,7 @@ SERVICES
                         </li>
                         <li>Batch 성능 개선 <br> - Application RunTime 중 부모 pk를 찾기 위한 UUID 컬럼 추가, JPA saveAll에서 JDBC
                             Template Bulk Insert 변환
-                            <br>  → 영속성 컨텍스트 거대화 방지 → 메모리 점유율 안정화 → OOM 방지
+                            <br> → 영속성 컨텍스트 거대화 방지 → 메모리 점유율 안정화 → OOM 방지
 
                             <br> - Log, visualVm을 통한 Heap Dump 분석으로 N+1 Query 문제점 파악 <br>→ Fetch Batch Size 적용
                             → 연관 객체 조회
@@ -1050,55 +1160,62 @@ DRIBBLE
 <!-- ==============================================
 CONTACT
 =============================================== -->
-<section id="contact" class="dark-bg light-typo padding-top-bottom" style="background-color:black;">
+<section id="portfolio" class="gray-bg padding-top-bottom">
+    <!-- ==============================================
+    PROJECT PREVIEW MODAL (Do not alter this markup)
+    =============================================== -->
+    <div id="project-modal" class="modal fade">
 
-    <div class="container">
+        <div class="modal-dialog">
 
-        <header class="section-header text-center">
+            <div class="modal-content">
 
-            <h1 class="scrollimation scale-in in">Contact</h1>
+                <div class="modal-header">
 
+                    <div class="container">
 
-        </header>
-        <div class="contactall">
-            <div class="contactcon">
-                <div class="contactleft">
-                    <h1>
-                        Name
-                    </h1>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                        <h1 id="hdr-title" class="text-center"></h1>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="image-wrapper">
+                                    <img class="img-responsive" src="assets/chrome.png" alt="">
+                                    <div class="loader"></div>
+                                    <div class="screen"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="contactright">
-                    <h1>
-                        김윤제
-                    </h1>
-                </div>
-            </div>
-        </div>
 
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div id="project-sidebar" class="col-md-3">
+                                <h2 id="sdbr-title"></h2>
+                                <p id="sdbr-category"></p>
+                                <p id="sdbr-date"></p>
+                                <p id="sdbr-client"></p>
+                                <p id="sdbr-link"><a href="#link" target="_blank"></a></p>
+                                <p id="sdbr-git"><a href="#link" target="_blank"></a></p>
+                                <p id="sdbr-descr"></p>
+                            </div>
+                            <div id="project-content" class="col-md-8 col-md-offset-1">
+                            </div>
+                        </div>
 
-    </div>
+                    </div>
+                </div><!-- End modal-body -->
+
+            </div><!-- End modal-content -->
+
+        </div><!-- End modal-dialog -->
+
+    </div><!-- End modal -->
 
 </section>
-<footer id="main-footer" class="dark-bg light-typo" style="background-color:black;">
-
-    <div class="container">
-
-
-        <div class="row">
-
-            <div class="col-sm-6">
-
-            </div>
-
-            <div class="col-sm-6 text-right">
-                <p>©Copyright 2019 YJKIM </p>
-            </div>
-
-        </div>
-
-    </div>
-
-</footer>
 <!-- ==============================================
 FOOTER
 =============================================== -->
