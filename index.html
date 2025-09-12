@@ -645,13 +645,7 @@ SERVICES
                     문제
                     <ul>
                         <li>품질 예방 대상 차종 등록 시 중복 저장 발생 <br> - 분산 환경에서의 동시 요청 처리로 인한 Race Condition으로 데이터 무결성 깨짐</li>
-                        <li>대용량 Batch 처리 시 JPA saveAll 사용으로 영속성 컨텍스트에 엔티티 누적 및 flush/clear 부재
-                            <br> - 메모리 점유율 증가 → OOM 발생
-                        </li>
-                        <li>대용량 Batch 처리 시 N+1 이슈 <br>
-                            - 쿼리 횟수 증가로 인한 성능 저하 <br>
-                            - 대량 데이터 적재로 영속성 컨텍스트에 객체가 계속 쌓여 GC 회수 불가 → 메모리 점유율 증가 → OOM 발생
-                        </li>
+                        <li>Tasklet 기반 대용량 배치에서 Out Of Memory 발생</li>
                         <li>품질 예방 대상 차종 등록/수정 시 처리 지연 (최대 10분 이상)</li>
                         <li>운영 환경에서 대량 로그 발생 시 동기 I/O로 인해 처리 지연 및 잠재적 성능 부담</li>
                     </ul>
@@ -663,6 +657,7 @@ SERVICES
                         </li>
                         <li>Batch 성능 개선
                             <br> - Tasklet 기반에서 Chunk 기반 Spring Batch 구조 변경
+                            <br> → 트랜잭션 단위 처리로 메모리 점유율 안정화 → OOM 방지
                             <br> - 외부 API 호출 시 로컬 캐시 도입 불필요한 중복 호출 방지 및 처리 시간 단축
                             <br> - Application RunTime 중 부모 pk를 찾기 위한 UUID 컬럼 추가, JPA saveAll에서 JDBC
                             Template Bulk Insert 변환
