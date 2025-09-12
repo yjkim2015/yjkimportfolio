@@ -661,7 +661,10 @@ SERVICES
                         <li>분산 환경 동시성 제어 <br>
                             - Redis 기반 Redisson 분산 락(AOP) 적용으로 서버 인스턴스 간 중복 저장 차단
                         </li>
-                        <li>Batch 성능 개선 <br> - Application RunTime 중 부모 pk를 찾기 위한 UUID 컬럼 추가, JPA saveAll에서 JDBC
+                        <li>Batch 성능 개선
+                            <br> - Tasklet 기반에서 Chunk 기반 Spring Batch 구조 변경
+                            <br> - 외부 API 호출 시 로컬 캐시 도입 불필요한 중복 호출 방지 및 처리 시간 단축
+                            <br> - Application RunTime 중 부모 pk를 찾기 위한 UUID 컬럼 추가, JPA saveAll에서 JDBC
                             Template Bulk Insert 변환
                             <br> → 영속성 컨텍스트 거대화 방지 → 메모리 점유율 안정화 → OOM 방지
 
