@@ -662,9 +662,9 @@ SERVICES
                             <br> - 외부 API 호출 시 로컬 캐시 도입 불필요한 중복 호출 방지 및 처리 시간 단축
                             <br> - Application RunTime 중 부모 pk를 찾기 위한 UUID 컬럼 추가, JPA saveAll에서 JDBC
                             Template Bulk Insert 변환
-                            <br>  &nbsp;&nbsp; &nbsp;&nbsp;→ 영속성 컨텍스트 거대화 방지 → 메모리 점유율 안정화 → OOM 방지
+                            <br> &nbsp;&nbsp; &nbsp;&nbsp;→ 영속성 컨텍스트 거대화 방지 → 메모리 점유율 안정화 → OOM 방지
                             <br> - N+1 해결 전략으로 Fetch Batch Size 적용
-                            <br>  &nbsp;&nbsp; &nbsp;&nbsp;→ 연관 객체 조회 쿼리 수 감소, 메모리 점유율 안정화 → OOM 방지
+                            <br> &nbsp;&nbsp; &nbsp;&nbsp;→ 연관 객체 조회 쿼리 수 감소, 메모리 점유율 안정화 → OOM 방지
                         </li>
                         <li>
                             차종 등록 / 수정 시 성능 개선 <br>
@@ -721,8 +721,13 @@ SERVICES
                         <li>쿠키 기반 2차 필터링
                             <br> - Custom UUID 쿠키 발급 → 동일 쿠키 + 서로 다른 IP 조합 탐지
                         </li>
-                        <li>시스템 전환
-                            <br> - Spring Boot + Kotlin 기반 API로 재개발, Gmarket/Auction 상품 상세 서버에 연동
+                        <li>
+                            Redis 특정 Slot 집중 (Hot Key) 방지를 위한 Stripe 패턴 적용
+                            <br> - MGet 명령어를 통한 Stripe Keys 조회 후 Sum 연산 → MGet 명령어 부하 조절을 위한 로컬 캐싱 적용 (50ms)
+                            <br> - 임계치 90% 도달 시 로컬 캐시 무효화 및 Redis 직접 조회
+                        </li>
+                        <li>
+                            고정 윈도우 + 슬라이딩 윈도우 방식 적용으로 인한 탐지율 강화<br>
                         </li>
                     </ul>
                     <br>
@@ -779,15 +784,14 @@ SERVICES
 
                             - 저장 모델은 Oracle과 MongoDB에 기록하여 영속성 보장
                         </li>
-                        <li>성능 테스트(K6) <br>
-
-                            - 점진적 부하 증가(Ramp-up) → Stable TPS / Limit TPS 측정 <br>
-
-                            - 단일 Pod 및 다중 Pod 환경에서 트래픽 시뮬레이션 <br>
-
-                            - 목표 TPS: 빅스마일데이 대비 최대 2000TPS
+                        <li>
+                            CompletableFuture 기반 Feign 비동기 호출 → Mono.flux 기반 WebClient 전환 <br>
+                            - 논블로킹 I/O로 외부 API 호출 병목 현상 해소
                         </li>
-
+                        <li>성능 테스트(K6) <br>
+                            - 점진적 부하 증가(Ramp-up) → Stable TPS / Limit TPS 측정 <br>
+                            - 단일 Pod 및 다중 Pod 환경에서 트래픽 시뮬레이션 <br>
+                        </li>
                     </ul>
                     <br>
                     성과
@@ -799,7 +803,8 @@ SERVICES
                         <li>Local + Global 캐시 계층 설계로 성능 안정화 및 장애 내성 확보</li>
                         <li>CQRS 패턴 기반 모델 분리로 성능 최적화</li>
                         <li>배포 시 Warm-up 자동화로 초기 Latency 제거</li>
-                        <li>성능 테스트 결과 ： 다중 Pod 환경 확장성 확인 → 목표 TPS 2000 대응 가능</li>
+                        <li>외부 API 지연 시 Resource 급증 현상 해결</li>
+                        <li>성능 테스트 결과 ： 다중 Pod 환경 확장성 확인</li>
                     </ul>
                 </div><!--//job-desc-->
             </div><!--//item-->
