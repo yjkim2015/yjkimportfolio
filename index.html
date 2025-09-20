@@ -670,11 +670,7 @@ SERVICES
                             차종 등록 / 수정 시 성능 개선 <br>
                             - Jpa Save All → JDBC Template Bulk Insert 적용 처리 시간 단축 <br>
                             - N + 1 Query 문제 해결로 성능 개선 <br>
-                            - 트랜잭션 내 외부 API 호출 → List 형태의 Param을 SubList하여 병렬 호출로 성능 개선 → 외부 API의 응답 지연에 따른 트랜잭션 지연 → 추후
-                            비동기 큐 도입 제안
-                        </li>
-                        <li>로그 처리 효율화 <br>
-                            - AOP 레벨에서 Kafka Pub/Sub로 로그 비동기 적재
+                            - 트랜잭션 내 외부 API의 응답 지연에 따른 지연 및 장애 시 롤백 → Kafka 도입 & OutBox 패턴 적용 메시지 유실 대비 보정 Job 설계
                         </li>
                     </ul>
                     <br>
@@ -685,7 +681,7 @@ SERVICES
                         <li>대용량 데이터 배치 성능 (속도, 리소스) 향상 (약 28분 → 5분 이내) 및 OOM 문제 해결
                         </li>
                         <li>품질 예방 대상 차종 등록 / 수정 시 성능 개선 (약 10분 → 1분 이내)</li>
-                        <li>Kafka 기반 로그 파이프라인으로 로그 처리 효율화</li>
+                        <li>비동기 큐 도입으로 인한 트랜잭션 처리 속도 개선 및 장애 상황 시 안전 확보 </li>
                     </ul>
                 </div><!--//job-desc-->
             </div><!--//item-->
@@ -723,7 +719,7 @@ SERVICES
                         </li>
                         <li>
                             Redis 특정 Slot 집중 (Hot Key) 방지를 위한 Stripe 패턴 적용
-                            <br> - MGet 명령어를 통한 Stripe Keys 조회 후 Sum 연산 → MGet 명령어 부하 조절을 위한 로컬 캐싱 적용 (50ms)
+                            <br> - MGet 명령어를 통한 Stripe Keys 조회 후 Sum 연산 → MGet 명령어 부하 조절을 위한 로컬 캐싱 적용
                             <br> - 임계치 90% 도달 시 로컬 캐시 무효화 및 Redis 직접 조회
                         </li>
                         <li>
