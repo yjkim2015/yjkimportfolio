@@ -716,14 +716,6 @@ SERVICES
                         <li>쿠키 기반 2차 필터링
                             <br> - Custom UUID 쿠키 발급 → 동일 쿠키 + 서로 다른 IP 조합 탐지
                         </li>
-                        <li>
-                            Redis 특정 Slot 집중 (Hot Key) 방지를 위한 Stripe 패턴 적용
-                            <br> - MGet 명령어를 통한 Stripe Keys 조회 후 Sum 연산 → MGet 명령어 부하 조절을 위한 로컬 캐싱 적용
-                            <br> - 임계치 90% 도달 시 로컬 캐시 무효화 및 Redis 직접 조회
-                        </li>
-                        <li>
-                            고정 윈도우 + 슬라이딩 윈도우 방식 적용으로 인한 탐지율 강화<br>
-                        </li>
                     </ul>
                     <br>
                     성과
